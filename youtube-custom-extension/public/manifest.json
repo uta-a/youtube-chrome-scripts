@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Custom Controls",
+  "version": "0.1.0",
+  "description": "YouTubeのショートカット、タブアイコン、テーマ色をカスタマイズします。",
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.youtube.com/*", "https://youtube.com/*"],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Custom",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
