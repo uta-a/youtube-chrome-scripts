@@ -4,6 +4,8 @@
   const CANVAS_SIZE = 48;
   const CONTENT_METADATA_LEADING_ICON_SELECTOR =
     ".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon";
+  const CONTENT_METADATA_ICON_SELECTOR = ".ytContentMetadataViewModelIcon";
+  const CONTENT_METADATA_LINE_BREAK_CLASS = "ytCustomContentMetadataLineBreak";
   const CONTENT_METADATA_SELECTOR =
     "yt-content-metadata-view-model, ytd-video-meta-block";
   const LEGACY_VIEW_COUNT_SELECTOR = "#metadata-line > span:first-child";
@@ -429,6 +431,8 @@
   }
 
   function formatViewCountLabels(metadataRoot) {
+    insertBreaksAfterMetadataIcons(metadataRoot);
+
     metadataRoot
       .querySelectorAll(".ytContentMetadataViewModelDelimiter")
       .forEach((delimiter) => {
@@ -477,6 +481,21 @@
     if (/^[\d０-９][\d０-９.,，]*\s*(?:万|億)?$/.test(text)) {
       element.textContent = `${text}回再生`;
     }
+  }
+
+  function insertBreaksAfterMetadataIcons(metadataRoot) {
+    metadataRoot.querySelectorAll(CONTENT_METADATA_ICON_SELECTOR).forEach((icon) => {
+      if (
+        icon.nextElementSibling?.classList.contains(CONTENT_METADATA_LINE_BREAK_CLASS)
+      ) {
+        return;
+      }
+
+      const lineBreak = document.createElement("span");
+      lineBreak.className = CONTENT_METADATA_LINE_BREAK_CLASS;
+      lineBreak.setAttribute("aria-hidden", "true");
+      icon.after(lineBreak);
+    });
   }
 
   function applyThemeStyles(theme) {
@@ -570,6 +589,60 @@
         display: inline !important;
         margin: 0 !important;
         padding: 0 !important;
+      }
+
+      .ytContentMetadataViewModelMetadataRow:has(
+          > .ytContentMetadataViewModelMetadataText:first-child a[href^="/@"]
+        )
+        > .ytContentMetadataViewModelMetadataText:first-child,
+      .ytContentMetadataViewModelMetadataRow:has(
+          > .ytContentMetadataViewModelMetadataText:first-child a[href^="/channel/"]
+        )
+        > .ytContentMetadataViewModelMetadataText:first-child {
+        display: block !important;
+        width: 100% !important;
+        flex-basis: 100% !important;
+      }
+
+      .ytContentMetadataViewModelMetadataRow:has(
+          > .ytContentMetadataViewModelMetadataText:first-child a[href^="/@"]
+        )
+        > .ytContentMetadataViewModelMetadataText:first-child
+        + .ytContentMetadataViewModelDelimiter,
+      .ytContentMetadataViewModelMetadataRow:has(
+          > .ytContentMetadataViewModelMetadataText:first-child a[href^="/channel/"]
+        )
+        > .ytContentMetadataViewModelMetadataText:first-child
+        + .ytContentMetadataViewModelDelimiter {
+        display: none !important;
+      }
+
+      .ytContentMetadataViewModelMetadataRow:has(> ${CONTENT_METADATA_ICON_SELECTOR})
+        > .ytContentMetadataViewModelMetadataText:first-child {
+        display: block !important;
+        width: auto !important;
+        max-width: calc(100% - 18px) !important;
+        flex-basis: auto !important;
+      }
+
+      ${CONTENT_METADATA_ICON_SELECTOR} {
+        display: inline-flex !important;
+        flex: 0 0 auto !important;
+      }
+
+      .${CONTENT_METADATA_LINE_BREAK_CLASS} {
+        display: block !important;
+        width: 100% !important;
+        flex-basis: 100% !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+      }
+
+      ${CONTENT_METADATA_ICON_SELECTOR}
+        + .${CONTENT_METADATA_LINE_BREAK_CLASS}
+        + .ytContentMetadataViewModelDelimiter {
+        display: none !important;
       }
 
       .ytContentMetadataViewModelMetadataText {

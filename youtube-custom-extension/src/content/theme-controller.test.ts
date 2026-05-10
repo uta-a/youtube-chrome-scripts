@@ -118,6 +118,10 @@ describe("themeController", () => {
     expect(cssText).toContain("text-overflow: clip");
     expect(cssText).toContain("overflow-wrap: anywhere");
     expect(cssText).toContain("white-space: normal");
+    expect(cssText).toContain('a[href^="/@"]');
+    expect(cssText).toContain('a[href^="/channel/"]');
+    expect(cssText).toContain(".ytContentMetadataViewModelIcon");
+    expect(cssText).toContain(".ytCustomContentMetadataLineBreak");
     expect(cssText).toContain(".ytContentMetadataViewModelDelimiter");
     expect(cssText).toContain('content: "・"');
     expect(cssText).toContain("ytd-video-meta-block #metadata-line");
@@ -174,6 +178,42 @@ describe("themeController", () => {
 
     expect(document.body.textContent).toContain("33万回再生");
     expect(document.body.textContent).not.toContain("33万回視聴");
+
+    controller.disable();
+  });
+
+  it("inserts a layout break after content metadata icons", async () => {
+    const metadata = document.createElement("yt-content-metadata-view-model");
+    metadata.innerHTML = `
+      <div class="ytContentMetadataViewModelMetadataRow">
+        <span class="ytContentMetadataViewModelMetadataText">
+          <a href="/@yurucom">ゆるコンピュータ科学ラジオ</a>
+        </span>
+        <span class="ytIconWrapperHost ytContentMetadataViewModelIcon"></span>
+        <span class="ytContentMetadataViewModelDelimiter">・</span>
+        <span class="ytContentMetadataViewModelMetadataText">2.8万回視聴</span>
+        <span class="ytContentMetadataViewModelDelimiter">・</span>
+        <span class="ytContentMetadataViewModelMetadataText">2 時間前</span>
+      </div>
+    `;
+    document.body.appendChild(metadata);
+
+    const controller = createThemeController(document);
+    controller.update({
+      enabled: true,
+      mode: "fixed-color",
+      fixedColor: "#00aa88",
+      iconUrl: "https://example.com/icon.png"
+    });
+
+    await Promise.resolve();
+
+    const icon = document.querySelector(".ytContentMetadataViewModelIcon");
+    const lineBreak = icon?.nextElementSibling;
+
+    expect(lineBreak).toHaveClass("ytCustomContentMetadataLineBreak");
+    expect(lineBreak?.getAttribute("aria-hidden")).toBe("true");
+    expect(document.body.textContent).toContain("2.8万回再生");
 
     controller.disable();
   });
