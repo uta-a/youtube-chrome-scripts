@@ -36,6 +36,7 @@
   let observer = null;
   let observerTarget = null;
   let isThemeApplyScheduled = false;
+  const pendingThemeRoots = new Set();
 
   function removeCurrentTabIcons() {
     document
@@ -329,15 +330,28 @@
     });
   }
 
-  function applyThemedAttributes(theme) {
+  function collectMatchingElements(root, selector) {
+    const elements = [];
+
+    if (root instanceof Element && root.matches(selector)) {
+      elements.push(root);
+    }
+
+    root.querySelectorAll(selector).forEach((element) => {
+      elements.push(element);
+    });
+
+    return elements;
+  }
+
+  function applyThemedAttributes(theme, root = document) {
     RED_FILL_VALUES.forEach((fill) => {
-      document
-        .querySelectorAll(
-          `[fill='${fill}'], [fill='${fill.toUpperCase()}'], ` +
-            `[stroke='${fill}'], [stroke='${fill.toUpperCase()}'], ` +
-            `[stop-color='${fill}'], [stop-color='${fill.toUpperCase()}']`
-        )
-        .forEach((element) => {
+      collectMatchingElements(
+        root,
+        `[fill='${fill}'], [fill='${fill.toUpperCase()}'], ` +
+          `[stroke='${fill}'], [stroke='${fill.toUpperCase()}'], ` +
+          `[stop-color='${fill}'], [stop-color='${fill.toUpperCase()}']`
+      ).forEach((element) => {
           if (element.hasAttribute("fill")) {
             element.setAttribute("fill", theme.primaryHex);
           }
@@ -349,12 +363,11 @@
           if (element.hasAttribute("stop-color")) {
             element.setAttribute("stop-color", theme.primaryHex);
           }
-        });
+      });
     });
 
-    document
-      .querySelectorAll("[fill], [stroke], [stop-color]")
-      .forEach((element) => {
+    collectMatchingElements(root, "[fill], [stroke], [stop-color]").forEach(
+      (element) => {
         const fill = element.getAttribute("fill");
         const stroke = element.getAttribute("stroke");
         const stopColor = element.getAttribute("stop-color");
@@ -370,7 +383,8 @@
         if (isThemeableRed(stopColor)) {
           element.setAttribute("stop-color", theme.primaryHex);
         }
-      });
+      }
+    );
   }
 
   function removeContentMetadataLeadingIcons(root = document) {
@@ -419,7 +433,10 @@
       .querySelectorAll(".ytContentMetadataViewModelDelimiter")
       .forEach((delimiter) => {
         const viewCountElement = delimiter.previousElementSibling;
-        delimiter.textContent = "・";
+
+        if (delimiter.textContent !== "・") {
+          delimiter.textContent = "・";
+        }
 
         if (viewCountElement) {
           formatViewCountElement(viewCountElement);
@@ -551,6 +568,8 @@
 
       .ytContentMetadataViewModelDelimiter {
         display: inline !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
       ytd-video-meta-block #metadata-line {
@@ -623,6 +642,11 @@
     applyThemedAttributes(theme);
   }
 
+  function applyThemeToRoot(theme, root) {
+    formatContentMetadata(root);
+    applyThemedAttributes(theme, root);
+  }
+
   async function extractAndApplyTheme() {
     if (isExtractingTheme || extractedTheme) {
       return;
@@ -681,9 +705,25 @@
       isThemeApplyScheduled = false;
 
       if (extractedTheme) {
-        applyTheme(extractedTheme);
+        const roots = Array.from(pendingThemeRoots).filter((root) => {
+          return root === document || root.isConnected;
+        });
+        pendingThemeRoots.clear();
+
+        roots.forEach((root) => {
+          applyThemeToRoot(extractedTheme, root);
+        });
       }
     }, 50);
+  }
+
+  function queueThemeRoot(root) {
+    if (!root) {
+      return;
+    }
+
+    pendingThemeRoots.add(root);
+    scheduleThemeApply();
   }
 
   function observeTarget(target) {
@@ -703,13 +743,22 @@
     });
   }
 
-  function handleDocumentMutation() {
+  function handleDocumentMutation(mutations) {
     if (!hasCustomTabIcon()) {
       changeTabIcon();
     }
 
-    formatContentMetadata();
-    scheduleThemeApply();
+    mutations.forEach((mutation) => {
+      if (mutation.type === "characterData" && mutation.target.parentElement) {
+        queueThemeRoot(mutation.target.parentElement);
+      }
+
+      mutation.addedNodes.forEach((node) => {
+        if (node instanceof Element) {
+          queueThemeRoot(node);
+        }
+      });
+    });
   }
 
   function start() {

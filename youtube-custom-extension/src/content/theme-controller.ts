@@ -299,6 +299,8 @@ export function createThemeController(targetDocument = document) {
 
       .ytContentMetadataViewModelDelimiter {
         display: inline !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
       ytd-video-meta-block #metadata-line {
@@ -413,7 +415,10 @@ export function createThemeController(targetDocument = document) {
       .querySelectorAll(".ytContentMetadataViewModelDelimiter")
       .forEach((delimiter) => {
         const viewCountElement = delimiter.previousElementSibling;
-        delimiter.textContent = "・";
+
+        if (delimiter.textContent !== "・") {
+          delimiter.textContent = "・";
+        }
 
         if (viewCountElement) {
           formatViewCountElement(viewCountElement);
