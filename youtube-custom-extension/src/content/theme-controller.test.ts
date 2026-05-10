@@ -72,10 +72,23 @@ describe("themeController", () => {
     controller.disable();
   });
 
-  it("removes content metadata leading icons and formats the views row without a bullet", async () => {
+  it("removes content metadata leading icons and formats content metadata", async () => {
     const leadingIcon = document.createElement("span");
     leadingIcon.className = "ytIconWrapperHost ytContentMetadataViewModelLeadingIcon";
-    document.body.appendChild(leadingIcon);
+    const metadata = document.createElement("yt-content-metadata-view-model");
+    metadata.className = "ytContentMetadataViewModelHost";
+    metadata.innerHTML = `
+      <div class="ytContentMetadataViewModelMetadataRow">
+        <span class="ytContentMetadataViewModelMetadataText">Example Channel</span>
+      </div>
+      <div class="ytContentMetadataViewModelMetadataRow">
+        <span class="ytContentMetadataViewModelMetadataText">521万回視聴</span>
+        <span class="ytContentMetadataViewModelDelimiter"> • </span>
+        <span class="ytContentMetadataViewModelMetadataText">4 年前</span>
+      </div>
+    `;
+    metadata.appendChild(leadingIcon);
+    document.body.appendChild(metadata);
 
     const controller = createThemeController(document);
     controller.update({
@@ -90,12 +103,18 @@ describe("themeController", () => {
     expect(
       document.querySelector(".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon")
     ).not.toBeInTheDocument();
+    expect(document.body.textContent).toContain("521万回再生");
+    expect(document.body.textContent).not.toContain("521万回視聴");
 
     const cssText =
       document.getElementById("youtube-custom-theme-style")?.textContent ?? "";
 
+    expect(cssText).toContain("flex-direction: column");
+    expect(cssText).toContain("flex-wrap: wrap");
+    expect(cssText).toContain("flex-basis: 100%");
     expect(cssText).toContain(".ytContentMetadataViewModelDelimiter");
-    expect(cssText).toContain('content: " "');
+    expect(cssText).toContain('content: ""');
+    expect(cssText).toContain("ytd-video-meta-block #metadata-line");
 
     controller.disable();
   });
@@ -123,6 +142,58 @@ describe("themeController", () => {
     expect(
       document.querySelector(".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon")
     ).not.toBeInTheDocument();
+
+    controller.disable();
+  });
+
+  it("formats view labels added after theme application", async () => {
+    vi.useFakeTimers();
+
+    const controller = createThemeController(document);
+    controller.update({
+      enabled: true,
+      mode: "fixed-color",
+      fixedColor: "#00aa88",
+      iconUrl: "https://example.com/icon.png"
+    });
+
+    await Promise.resolve();
+
+    const metadata = document.createElement("yt-content-metadata-view-model");
+    metadata.innerHTML =
+      '<span class="ytContentMetadataViewModelMetadataText">33万回視聴</span>';
+    document.body.appendChild(metadata);
+
+    await Promise.resolve();
+
+    expect(document.body.textContent).toContain("33万回再生");
+    expect(document.body.textContent).not.toContain("33万回視聴");
+
+    controller.disable();
+  });
+
+  it("formats legacy metadata view counts without a suffix", async () => {
+    const metadata = document.createElement("ytd-video-meta-block");
+    metadata.innerHTML = `
+      <div id="metadata-line">
+        <span>521万</span>
+        <span>4 年前</span>
+      </div>
+    `;
+    document.body.appendChild(metadata);
+
+    const controller = createThemeController(document);
+    controller.update({
+      enabled: true,
+      mode: "fixed-color",
+      fixedColor: "#00aa88",
+      iconUrl: "https://example.com/icon.png"
+    });
+
+    await Promise.resolve();
+
+    expect(document.body.textContent).toContain("521万回再生");
+    expect(document.body.textContent).toContain("4 年前");
 
     controller.disable();
   });

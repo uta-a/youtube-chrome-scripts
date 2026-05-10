@@ -4,6 +4,9 @@
   const CANVAS_SIZE = 48;
   const CONTENT_METADATA_LEADING_ICON_SELECTOR =
     ".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon";
+  const CONTENT_METADATA_SELECTOR =
+    "yt-content-metadata-view-model, ytd-video-meta-block";
+  const LEGACY_VIEW_COUNT_SELECTOR = "#metadata-line > span:first-child";
   const RED_FILL_VALUES = ["#ff0033", "#ff0000", "#f00", "red"];
   const THEME_VARIABLES = {
     primary: [
@@ -381,6 +384,83 @@
       .forEach((element) => element.remove());
   }
 
+  function formatContentMetadata(root = document) {
+    removeContentMetadataLeadingIcons(root);
+
+    collectContentMetadataRoots(root).forEach((metadataRoot) => {
+      formatViewCountLabels(metadataRoot);
+    });
+  }
+
+  function collectContentMetadataRoots(root) {
+    const roots = new Set();
+
+    if (root instanceof Element) {
+      const closestMetadata = root.closest(CONTENT_METADATA_SELECTOR);
+
+      if (closestMetadata) {
+        roots.add(closestMetadata);
+      }
+
+      if (root.matches(CONTENT_METADATA_SELECTOR)) {
+        roots.add(root);
+      }
+    }
+
+    root.querySelectorAll(CONTENT_METADATA_SELECTOR).forEach((element) => {
+      roots.add(element);
+    });
+
+    return Array.from(roots);
+  }
+
+  function formatViewCountLabels(metadataRoot) {
+    metadataRoot
+      .querySelectorAll(".ytContentMetadataViewModelDelimiter")
+      .forEach((delimiter) => {
+        const viewCountElement = delimiter.previousElementSibling;
+
+        if (viewCountElement) {
+          formatViewCountElement(viewCountElement);
+        }
+      });
+
+    metadataRoot.querySelectorAll(LEGACY_VIEW_COUNT_SELECTOR).forEach((element) => {
+      formatViewCountElement(element);
+    });
+
+    const textWalker = document.createTreeWalker(metadataRoot, 4);
+    let currentNode = textWalker.nextNode();
+
+    while (currentNode) {
+      const nextValue =
+        currentNode.nodeValue?.replaceAll("回視聴", "回再生") ?? null;
+
+      if (nextValue !== currentNode.nodeValue) {
+        currentNode.nodeValue = nextValue;
+      }
+
+      currentNode = textWalker.nextNode();
+    }
+  }
+
+  function formatViewCountElement(element) {
+    const text = element.textContent?.trim();
+
+    if (!text) {
+      return;
+    }
+
+    if (text.includes("回視聴")) {
+      element.textContent = text.replaceAll("回視聴", "回再生");
+      return;
+    }
+
+    if (/^[\d０-９][\d０-９.,，]*\s*(?:万|億)?$/.test(text)) {
+      element.textContent = `${text}回再生`;
+    }
+  }
+
   function applyThemeStyles(theme) {
     if (!document.head) {
       return;
@@ -455,13 +535,43 @@
         display: none !important;
       }
 
+      yt-content-metadata-view-model.ytContentMetadataViewModelHost {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+      }
+
+      .ytContentMetadataViewModelMetadataRow {
+        display: flex !important;
+        width: 100% !important;
+        flex-basis: 100% !important;
+        flex-wrap: wrap !important;
+      }
+
       .ytContentMetadataViewModelDelimiter {
         display: none !important;
       }
 
       .ytContentMetadataViewModelDelimiter
+        + .ytContentMetadataViewModelMetadataText {
+        display: block !important;
+        width: 100% !important;
+        flex-basis: 100% !important;
+      }
+
+      .ytContentMetadataViewModelDelimiter
         + .ytContentMetadataViewModelMetadataText::before {
-        content: " ";
+        content: "";
+      }
+
+      ytd-video-meta-block #metadata-line {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+
+      ytd-video-meta-block #metadata-line > span {
+        display: block !important;
       }
 
       ytd-notification-topbar-button-renderer #notification-count,
@@ -513,7 +623,7 @@
   }
 
   function applyTheme(theme) {
-    removeContentMetadataLeadingIcons();
+    formatContentMetadata();
     applyThemeVariables(theme);
     applyThemeStyles(theme);
     applyThemedAttributes(theme);
@@ -594,6 +704,7 @@
     observerTarget = target;
     observer.observe(target, {
       childList: true,
+      characterData: true,
       subtree: true,
     });
   }
@@ -603,7 +714,7 @@
       changeTabIcon();
     }
 
-    removeContentMetadataLeadingIcons();
+    formatContentMetadata();
     scheduleThemeApply();
   }
 
@@ -616,7 +727,7 @@
     observer = new MutationObserver(handleDocumentMutation);
     observeTarget(document.documentElement);
     changeTabIcon();
-    removeContentMetadataLeadingIcons();
+    formatContentMetadata();
     extractAndApplyTheme();
   }
 

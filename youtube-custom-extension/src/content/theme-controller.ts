@@ -10,6 +10,8 @@ import { extractDominantColorFromImage } from "./theme-extractor";
 const THEME_STYLE_ID = "youtube-custom-theme-style";
 const CONTENT_METADATA_LEADING_ICON_SELECTOR =
   ".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon";
+const CONTENT_METADATA_SELECTOR = "yt-content-metadata-view-model, ytd-video-meta-block";
+const LEGACY_VIEW_COUNT_SELECTOR = "#metadata-line > span:first-child";
 const THEME_VARIABLES = {
   primary: [
     "--yt-spec-static-brand-red",
@@ -87,7 +89,7 @@ export function createThemeController(targetDocument = document) {
 
     applyThemeVariables(palette);
     applyThemeStyles(palette);
-    removeContentMetadataLeadingIcons(targetDocument);
+    formatContentMetadata(targetDocument);
 
     if (fullScan) {
       applyThemedAttributes(palette, [targetDocument.documentElement]);
@@ -105,9 +107,13 @@ export function createThemeController(targetDocument = document) {
     }
 
     mutations.forEach((mutation) => {
+      if (mutation.type === "characterData" && mutation.target.parentElement) {
+        formatContentMetadata(mutation.target.parentElement);
+      }
+
       mutation.addedNodes.forEach((node) => {
         if (node instanceof Element) {
-          removeContentMetadataLeadingIcons(node);
+          formatContentMetadata(node);
 
           if (node.isConnected) {
             pendingAttributeRoots.add(node);
@@ -141,6 +147,7 @@ export function createThemeController(targetDocument = document) {
         observer = new MutationObserver(handleMutations);
         observer.observe(targetDocument.documentElement, {
           childList: true,
+          characterData: true,
           subtree: true
         });
       }
@@ -277,13 +284,43 @@ export function createThemeController(targetDocument = document) {
         display: none !important;
       }
 
+      yt-content-metadata-view-model.ytContentMetadataViewModelHost {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+      }
+
+      .ytContentMetadataViewModelMetadataRow {
+        display: flex !important;
+        width: 100% !important;
+        flex-basis: 100% !important;
+        flex-wrap: wrap !important;
+      }
+
       .ytContentMetadataViewModelDelimiter {
         display: none !important;
       }
 
       .ytContentMetadataViewModelDelimiter
+        + .ytContentMetadataViewModelMetadataText {
+        display: block !important;
+        width: 100% !important;
+        flex-basis: 100% !important;
+      }
+
+      .ytContentMetadataViewModelDelimiter
         + .ytContentMetadataViewModelMetadataText::before {
-        content: " ";
+        content: "";
+      }
+
+      ytd-video-meta-block #metadata-line {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+
+      ytd-video-meta-block #metadata-line > span {
+        display: block !important;
       }
 
       ytd-notification-topbar-button-renderer #notification-count,
@@ -334,6 +371,14 @@ export function createThemeController(targetDocument = document) {
     }
   }
 
+  function formatContentMetadata(root: ParentNode): void {
+    removeContentMetadataLeadingIcons(root);
+
+    collectContentMetadataRoots(root).forEach((metadataRoot) => {
+      formatViewCountLabels(metadataRoot);
+    });
+  }
+
   function removeContentMetadataLeadingIcons(root: ParentNode): void {
     if (
       root instanceof Element &&
@@ -346,6 +391,74 @@ export function createThemeController(targetDocument = document) {
     root
       .querySelectorAll(CONTENT_METADATA_LEADING_ICON_SELECTOR)
       .forEach((element) => element.remove());
+  }
+
+  function collectContentMetadataRoots(root: ParentNode): Element[] {
+    const roots = new Set<Element>();
+
+    if (root instanceof Element) {
+      const closestMetadata = root.closest(CONTENT_METADATA_SELECTOR);
+
+      if (closestMetadata) {
+        roots.add(closestMetadata);
+      }
+
+      if (root.matches(CONTENT_METADATA_SELECTOR)) {
+        roots.add(root);
+      }
+    }
+
+    root.querySelectorAll(CONTENT_METADATA_SELECTOR).forEach((element) => {
+      roots.add(element);
+    });
+
+    return Array.from(roots);
+  }
+
+  function formatViewCountLabels(metadataRoot: Element): void {
+    metadataRoot
+      .querySelectorAll(".ytContentMetadataViewModelDelimiter")
+      .forEach((delimiter) => {
+        const viewCountElement = delimiter.previousElementSibling;
+
+        if (viewCountElement) {
+          formatViewCountElement(viewCountElement);
+        }
+      });
+
+    metadataRoot.querySelectorAll(LEGACY_VIEW_COUNT_SELECTOR).forEach((element) => {
+      formatViewCountElement(element);
+    });
+
+    const textWalker = targetDocument.createTreeWalker(metadataRoot, 4);
+    let currentNode = textWalker.nextNode();
+
+    while (currentNode) {
+      const nextValue = currentNode.nodeValue?.replaceAll("回視聴", "回再生") ?? null;
+
+      if (nextValue !== currentNode.nodeValue) {
+        currentNode.nodeValue = nextValue;
+      }
+
+      currentNode = textWalker.nextNode();
+    }
+  }
+
+  function formatViewCountElement(element: Element): void {
+    const text = element.textContent?.trim();
+
+    if (!text) {
+      return;
+    }
+
+    if (text.includes("回視聴")) {
+      element.textContent = text.replaceAll("回視聴", "回再生");
+      return;
+    }
+
+    if (/^[\d０-９][\d０-９.,，]*\s*(?:万|億)?$/.test(text)) {
+      element.textContent = `${text}回再生`;
+    }
   }
 
   function applyThemedAttributes(nextPalette: ThemePalette, roots: Element[]): void {
