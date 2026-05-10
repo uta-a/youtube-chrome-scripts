@@ -294,7 +294,7 @@ export function createThemeController(targetDocument = document) {
         display: flex !important;
         width: 100% !important;
         flex-basis: 100% !important;
-        flex-wrap: nowrap !important;
+        flex-wrap: wrap !important;
       }
 
       .ytContentMetadataViewModelDelimiter {
@@ -303,15 +303,39 @@ export function createThemeController(targetDocument = document) {
         padding: 0 !important;
       }
 
+      .ytContentMetadataViewModelMetadataText {
+        min-width: 0 !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+      }
+
+      .ytContentMetadataViewModelMetadataText a,
+      .ytContentMetadataViewModelMetadataText span {
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+      }
+
       ytd-video-meta-block #metadata-line {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
-        flex-wrap: nowrap !important;
+        flex-wrap: wrap !important;
       }
 
       ytd-video-meta-block #metadata-line > span {
         display: inline !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
       }
 
       ytd-video-meta-block #metadata-line > span + span::before {

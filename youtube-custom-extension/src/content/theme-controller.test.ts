@@ -113,8 +113,11 @@ describe("themeController", () => {
       document.getElementById("youtube-custom-theme-style")?.textContent ?? "";
 
     expect(cssText).toContain("flex-direction: column");
-    expect(cssText).toContain("flex-wrap: nowrap");
+    expect(cssText).toContain("flex-wrap: wrap");
     expect(cssText).toContain("flex-basis: 100%");
+    expect(cssText).toContain("text-overflow: clip");
+    expect(cssText).toContain("overflow-wrap: anywhere");
+    expect(cssText).toContain("white-space: normal");
     expect(cssText).toContain(".ytContentMetadataViewModelDelimiter");
     expect(cssText).toContain('content: "・"');
     expect(cssText).toContain("ytd-video-meta-block #metadata-line");
