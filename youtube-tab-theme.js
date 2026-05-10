@@ -419,6 +419,7 @@
       .querySelectorAll(".ytContentMetadataViewModelDelimiter")
       .forEach((delimiter) => {
         const viewCountElement = delimiter.previousElementSibling;
+        delimiter.textContent = "・";
 
         if (viewCountElement) {
           formatViewCountElement(viewCountElement);
@@ -545,33 +546,26 @@
         display: flex !important;
         width: 100% !important;
         flex-basis: 100% !important;
-        flex-wrap: wrap !important;
+        flex-wrap: nowrap !important;
       }
 
       .ytContentMetadataViewModelDelimiter {
-        display: none !important;
-      }
-
-      .ytContentMetadataViewModelDelimiter
-        + .ytContentMetadataViewModelMetadataText {
-        display: block !important;
-        width: 100% !important;
-        flex-basis: 100% !important;
-      }
-
-      .ytContentMetadataViewModelDelimiter
-        + .ytContentMetadataViewModelMetadataText::before {
-        content: "";
+        display: inline !important;
       }
 
       ytd-video-meta-block #metadata-line {
         display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
       }
 
       ytd-video-meta-block #metadata-line > span {
-        display: block !important;
+        display: inline !important;
+      }
+
+      ytd-video-meta-block #metadata-line > span + span::before {
+        content: "・";
       }
 
       ytd-notification-topbar-button-renderer #notification-count,

@@ -103,17 +103,20 @@ describe("themeController", () => {
     expect(
       document.querySelector(".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon")
     ).not.toBeInTheDocument();
+    const compactText = document.body.textContent?.replace(/\s+/g, "") ?? "";
+
     expect(document.body.textContent).toContain("521万回再生");
+    expect(compactText).toContain("521万回再生・4年前");
     expect(document.body.textContent).not.toContain("521万回視聴");
 
     const cssText =
       document.getElementById("youtube-custom-theme-style")?.textContent ?? "";
 
     expect(cssText).toContain("flex-direction: column");
-    expect(cssText).toContain("flex-wrap: wrap");
+    expect(cssText).toContain("flex-wrap: nowrap");
     expect(cssText).toContain("flex-basis: 100%");
     expect(cssText).toContain(".ytContentMetadataViewModelDelimiter");
-    expect(cssText).toContain('content: ""');
+    expect(cssText).toContain('content: "・"');
     expect(cssText).toContain("ytd-video-meta-block #metadata-line");
 
     controller.disable();
