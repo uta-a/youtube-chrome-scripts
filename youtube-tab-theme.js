@@ -583,6 +583,7 @@
         width: 100% !important;
         flex-basis: 100% !important;
         flex-wrap: wrap !important;
+        justify-content: flex-start !important;
       }
 
       .ytContentMetadataViewModelDelimiter {
@@ -593,11 +594,11 @@
 
       .ytContentMetadataViewModelMetadataRow:has(
           > .ytContentMetadataViewModelMetadataText:first-child a[href^="/@"]
-        )
+        ):not(:has(> ${CONTENT_METADATA_ICON_SELECTOR}))
         > .ytContentMetadataViewModelMetadataText:first-child,
       .ytContentMetadataViewModelMetadataRow:has(
           > .ytContentMetadataViewModelMetadataText:first-child a[href^="/channel/"]
-        )
+        ):not(:has(> ${CONTENT_METADATA_ICON_SELECTOR}))
         > .ytContentMetadataViewModelMetadataText:first-child {
         display: block !important;
         width: 100% !important;
@@ -606,12 +607,12 @@
 
       .ytContentMetadataViewModelMetadataRow:has(
           > .ytContentMetadataViewModelMetadataText:first-child a[href^="/@"]
-        )
+        ):not(:has(> ${CONTENT_METADATA_ICON_SELECTOR}))
         > .ytContentMetadataViewModelMetadataText:first-child
         + .ytContentMetadataViewModelDelimiter,
       .ytContentMetadataViewModelMetadataRow:has(
           > .ytContentMetadataViewModelMetadataText:first-child a[href^="/channel/"]
-        )
+        ):not(:has(> ${CONTENT_METADATA_ICON_SELECTOR}))
         > .ytContentMetadataViewModelMetadataText:first-child
         + .ytContentMetadataViewModelDelimiter {
         display: none !important;
@@ -623,11 +624,15 @@
         width: auto !important;
         max-width: calc(100% - 18px) !important;
         flex-basis: auto !important;
+        flex: 0 1 auto !important;
+        flex-grow: 0 !important;
+        flex-shrink: 1 !important;
       }
 
       ${CONTENT_METADATA_ICON_SELECTOR} {
         display: inline-flex !important;
         flex: 0 0 auto !important;
+        margin-left: 2px !important;
       }
 
       .${CONTENT_METADATA_LINE_BREAK_CLASS} {

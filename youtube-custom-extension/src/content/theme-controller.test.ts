@@ -115,12 +115,17 @@ describe("themeController", () => {
     expect(cssText).toContain("flex-direction: column");
     expect(cssText).toContain("flex-wrap: wrap");
     expect(cssText).toContain("flex-basis: 100%");
+    expect(cssText).toContain("justify-content: flex-start");
+    expect(cssText).toContain("flex-grow: 0");
+    expect(cssText).toContain("margin-left: 2px");
     expect(cssText).toContain("text-overflow: clip");
     expect(cssText).toContain("overflow-wrap: anywhere");
     expect(cssText).toContain("white-space: normal");
     expect(cssText).toContain('a[href^="/@"]');
     expect(cssText).toContain('a[href^="/channel/"]');
     expect(cssText).toContain(".ytContentMetadataViewModelIcon");
+    expect(cssText).toContain(":not(:has(> .ytContentMetadataViewModelIcon))");
+    expect(cssText).toContain("flex: 0 1 auto");
     expect(cssText).toContain(".ytCustomContentMetadataLineBreak");
     expect(cssText).toContain(".ytContentMetadataViewModelDelimiter");
     expect(cssText).toContain('content: "・"');
