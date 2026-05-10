@@ -71,4 +71,59 @@ describe("themeController", () => {
 
     controller.disable();
   });
+
+  it("removes content metadata leading icons and formats the views row without a bullet", async () => {
+    const leadingIcon = document.createElement("span");
+    leadingIcon.className = "ytIconWrapperHost ytContentMetadataViewModelLeadingIcon";
+    document.body.appendChild(leadingIcon);
+
+    const controller = createThemeController(document);
+    controller.update({
+      enabled: true,
+      mode: "fixed-color",
+      fixedColor: "#00aa88",
+      iconUrl: "https://example.com/icon.png"
+    });
+
+    await Promise.resolve();
+
+    expect(
+      document.querySelector(".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon")
+    ).not.toBeInTheDocument();
+
+    const cssText =
+      document.getElementById("youtube-custom-theme-style")?.textContent ?? "";
+
+    expect(cssText).toContain(".ytContentMetadataViewModelDelimiter");
+    expect(cssText).toContain('content: " "');
+
+    controller.disable();
+  });
+
+  it("removes content metadata leading icons added after theme application", async () => {
+    vi.useFakeTimers();
+
+    const controller = createThemeController(document);
+    controller.update({
+      enabled: true,
+      mode: "fixed-color",
+      fixedColor: "#00aa88",
+      iconUrl: "https://example.com/icon.png"
+    });
+
+    await Promise.resolve();
+
+    const metadata = document.createElement("div");
+    metadata.innerHTML =
+      '<span class="ytIconWrapperHost ytContentMetadataViewModelLeadingIcon"></span>';
+    document.body.appendChild(metadata);
+
+    await Promise.resolve();
+
+    expect(
+      document.querySelector(".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon")
+    ).not.toBeInTheDocument();
+
+    controller.disable();
+  });
 });

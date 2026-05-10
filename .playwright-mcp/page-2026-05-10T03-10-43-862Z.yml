@@ -1,0 +1,820 @@
+- generic [ref=e105]:
+  - banner [ref=e80]:
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - button "ガイド" [ref=e85] [cursor=pointer]:
+          - generic [ref=e88]:
+            - img
+        - generic [ref=e89]:
+          - link "YouTube ホーム" [ref=e106] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e111]:
+              - img
+          - generic [ref=e112]: JP
+        - button "ナビゲーションをスキップ" [ref=e116] [cursor=pointer]:
+          - generic [ref=e117]: ナビゲーションをスキップ
+      - generic [ref=e90]:
+        - search [ref=e91]:
+          - generic [ref=e92]:
+            - combobox "検索" [expanded] [ref=e121]
+            - button "Search" [ref=e96] [cursor=pointer]:
+              - generic [ref=e99]:
+                - img
+        - generic [ref=e123]:
+          - button "音声で検索" [ref=e125] [cursor=pointer]:
+            - generic [ref=e129]:
+              - img
+          - tooltip "tooltip"
+      - generic [ref=e133]:
+        - button "設定" [ref=e138] [cursor=pointer]:
+          - generic [ref=e141]:
+            - img
+        - link "ログイン" [ref=e144] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Dja%26next%3Dhttps%253A%252F%252Fwww.youtube.com%252Fwatch%253Fv%253DdQw4w9WgXcQ&hl=ja&ec=65620
+          - generic [ref=e148]:
+            - img
+          - generic [ref=e149]: ログイン
+  - main [ref=e154]:
+    - generic [ref=e155]:
+      - generic [ref=e157]:
+        - complementary [ref=e164]:
+          - generic "YouTube 動画プレーヤー" [active] [ref=e5]:
+            - generic [ref=e7]:
+              - generic:
+                - generic [ref=e9] [cursor=pointer]:
+                  - img [ref=e10]
+                  - generic [ref=e12]:
+                    - generic "今なら初回200円(税込)！" [ref=e13]
+                    - generic "fod.fujitv.co.jp" [ref=e14]
+                  - link "詳細を見る This link opens in new tab" [ref=e15]:
+                    - generic [ref=e167]: 詳細を見る
+                - generic [ref=e16]:
+                  - generic "スポンサー" [ref=e18]
+                  - button "マイ アド センター" [ref=e20] [cursor=pointer]:
+                    - generic [ref=e21]:
+                      - img
+                  - link "fod.fujitv.co.jp This link opens in new tab" [ref=e24]:
+                    - generic [ref=e25] [cursor=pointer]: fod.fujitv.co.jp
+                - button "スキップ" [ref=e168] [cursor=pointer]:
+                  - generic [ref=e169]: スキップ
+                  - generic [ref=e170]:
+                    - img
+            - generic [ref=e28]:
+              - generic [ref=e29]:
+                - slider "移動スライダー" [disabled] [ref=e30]
+                - generic:
+                  - generic:
+                    - generic:
+                      - slider "パネルをクリックまたはスクロールすると、再生位置を細かく調整できます。" [disabled]
+              - generic [ref=e41]:
+                - generic [ref=e42]:
+                  - button "一時停止（k）" [ref=e43] [cursor=pointer]:
+                    - img
+                  - generic [ref=e44]:
+                    - button "ミュート解除（m）" [ref=e46] [cursor=pointer]:
+                      - img
+                    - slider "音量"
+                  - button "0 分 2 秒 / 0 分 30 秒" [ref=e171] [cursor=pointer]: 0:02 / 0:30
+                - generic [ref=e51]:
+                  - button "設定" [ref=e53] [cursor=pointer]:
+                    - img
+                  - generic [ref=e54]:
+                    - button "シアター モード（t）" [ref=e55] [cursor=pointer]:
+                      - img
+                    - button "全画面（f）" [ref=e56] [cursor=pointer]:
+                      - img
+        - generic [ref=e172]:
+          - generic [ref=e174]:
+            - heading "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)" [level=1] [ref=e176]
+            - generic [ref=e177]:
+              - generic [ref=e178]:
+                - generic [ref=e179]:
+                  - link [ref=e180] [cursor=pointer]:
+                    - /url: /@RickAstleyYT
+                  - generic [ref=e182]:
+                    - generic [ref=e183]:
+                      - generic "Rick Astley" [ref=e186]:
+                        - link "Rick Astley" [ref=e187] [cursor=pointer]:
+                          - /url: /channel/UCuAXFkgsw1L7xaCfnd5JJOw
+                      - img "公式アーティスト チャンネル" [ref=e192]:
+                        - generic [ref=e195]:
+                          - img
+                    - generic "チャンネル登録者数 449万人" [ref=e196]
+                - generic [ref=e200]:
+                  - button "Rick Astley をチャンネル登録" [ref=e202] [cursor=pointer]:
+                    - generic [ref=e203]: チャンネル登録
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                    - generic:
+                      - img
+              - generic [ref=e210]:
+                - generic [ref=e211]:
+                  - generic [ref=e215]:
+                    - button "他 19,083,572 人もこの動画を高く評価しました" [ref=e219] [cursor=pointer]:
+                      - generic [ref=e223]:
+                        - img
+                      - generic [ref=e224]: 1908万
+                    - button "この動画を低く評価する" [ref=e231] [cursor=pointer]:
+                      - generic [ref=e235]:
+                        - img
+                  - button "共有" [ref=e241] [cursor=pointer]:
+                    - generic [ref=e245]:
+                      - img
+                    - generic [ref=e246]: 共有
+                - button "その他の操作" [ref=e251] [cursor=pointer]:
+                  - generic [ref=e255]:
+                    - img
+            - generic [ref=e261] [cursor=pointer]:
+              - generic [ref=e262]:
+                - generic [ref=e264]:
+                  - text: 1,770,753,531回視聴 16 年前
+                  - link "#RickAstley" [ref=e265]:
+                    - /url: /hashtag/rickastley
+                  - link "#NeverGonnaGiveYouUp" [ref=e266]:
+                    - /url: /hashtag/nevergonnagiveyouup
+                  - link "#OfficialMusicVideo" [ref=e267]:
+                    - /url: /hashtag/officialmusicvideo
+                - tooltip "tooltip"
+              - generic [ref=e268]:
+                - generic [ref=e269]:
+                  - generic [ref=e272]: "The official video for “Never Gonna Give You Up” by Rick Astley. Never: The Autobiography 📚 OUT NOW!"
+                  - generic: …
+                - button "...もっと見る" [ref=e273]
+          - text: •
+          - generic [ref=e275]:
+            - generic [ref=e276]:
+              - heading "Rick Astley - イベント チケット" [level=1] [ref=e277]
+              - complementary "リストに表示されるコンサート イベントは、視聴している動画に登場するアーティスト、チャンネル登録しているチャンネル、YouTube にログイン中の過去のアクティビティ（検索したアーティストなど）、おおよその現在地に基づいています。 おおよその現在地は、IP アドレスから推定されます。IP アドレスは、インターネット サービス プロバイダによってお使いのデバイスに割り当てられるもので、ウェブサイトやオンライン サービスに接続するために必要です。 コンサート イベントの情報（価格や特典など）は、チケット販売者またはイベント主催者によって決定され、変更される場合があります。YouTube はこれらのイベントのチケットを販売しておらず、これらの第三者によって提供されるコンサート イベントやイベント情報について責任を負いません。下のイベントをクリックして第三者のサイトにアクセスのうえ、価格、特典、追加料金、購入方法などの詳細情報をご確認ください。YouTube は、こうしたウェブサイトおよびオンライン サービス上の情報について管理しておらず、一切責任を負いません。利用する第三者のウェブサイトやオンライン サービスの規約とプライバシー ポリシーを一読することをおすすめします。 当該イベントのチケット販売情報の提供元が複数ある場合、それらはアルファベット順で表示されます。" [ref=e278] [cursor=pointer]:
+                - generic [ref=e281]:
+                  - img
+              - tooltip "tooltip"
+            - generic [ref=e282]:
+              - generic [ref=e283]:
+                - link "6月 5" [ref=e284] [cursor=pointer]:
+                  - /url: javascript:void(0)
+                  - generic [ref=e286]: 6月
+                  - generic [ref=e288]: "5"
+                - generic [ref=e289]:
+                  - generic [ref=e290]:
+                    - link "一番近いイベント · Scarborough, イギリス" [ref=e291] [cursor=pointer]:
+                      - /url: javascript:void(0)
+                    - generic [ref=e292]: "18:00 (金): Scarborough North Bay Railway"
+                    - link "Bandsintown" [ref=e293] [cursor=pointer]:
+                      - /url: https://www.youtube.com/redirect?event=ticket_shelf&redir_token=QUFFLUhqbnIzUkVRZ0VUTWRjUFZZcmNnTFRqYjh4eHJYd3xBQ3Jtc0tsZUYwWEN0LWpkRU9EMkRzT1lyM2xtaHR0SWRsWnk5ZE9RckVxSjJLUE1YcjhmQVB0eEJwUG15LW1HTzVpV0ZnWkd2T0NYVnF4eFZQRXVfZTJYTEhIbUpVTDQyUk9CX3RXQWEwWnBKLUw3STEtS1lKVQ&q=https%3A%2F%2Fwww.bandsintown.com%2Fe%2F1037106492%3Fapp_id%3Dyt_feed%26came_from%3D286%26utm_medium%3Dweb%26utm_source%3Dggl_feed%26utm_campaign%3Devent
+                  - link "チケットを表示" [ref=e294] [cursor=pointer]:
+                    - /url: javascript:void(0)
+                    - text: チケットを表示
+                    - generic [ref=e297]:
+                      - img
+              - table [ref=e300] [cursor=pointer]:
+                - row "6月18日 Newport, イギリス · Seaclose Park · Bandsintown" [ref=e301]:
+                  - cell "6月18日" [ref=e302]:
+                    - generic [ref=e303]: 6月18日
+                  - cell
+                  - cell "Newport, イギリス · Seaclose Park · Bandsintown" [ref=e304]:
+                    - generic [ref=e306]:
+                      - generic [ref=e307]: Newport, イギリス · Seaclose Park
+                      - generic [ref=e308]: ·
+                      - link "Bandsintown" [ref=e309]:
+                        - /url: javascript:void(0)
+                        - text: Bandsintown
+                        - generic [ref=e312]:
+                          - img
+                - row "6月25日 Lincoln, イギリス · リンカン・キャッスル · Bandsintown" [ref=e313]:
+                  - cell "6月25日" [ref=e314]:
+                    - generic [ref=e315]: 6月25日
+                  - cell
+                  - cell "Lincoln, イギリス · リンカン・キャッスル · Bandsintown" [ref=e316]:
+                    - generic [ref=e318]:
+                      - generic [ref=e319]: Lincoln, イギリス · リンカン・キャッスル
+                      - generic [ref=e320]: ·
+                      - link "Bandsintown" [ref=e321]:
+                        - /url: javascript:void(0)
+                        - text: Bandsintown
+                        - generic [ref=e324]:
+                          - img
+                - row "6月27日 Tetbury, イギリス · ウェストンバート国立樹木園 · Bandsintown" [ref=e325]:
+                  - cell "6月27日" [ref=e326]:
+                    - generic [ref=e327]: 6月27日
+                  - cell
+                  - cell "Tetbury, イギリス · ウェストンバート国立樹木園 · Bandsintown" [ref=e328]:
+                    - generic [ref=e330]:
+                      - generic [ref=e331]: Tetbury, イギリス · ウェストンバート国立樹木園
+                      - generic [ref=e332]: ·
+                      - link "Bandsintown" [ref=e333]:
+                        - /url: javascript:void(0)
+                        - text: Bandsintown
+                        - generic [ref=e336]:
+                          - img
+            - button "もっと見る" [ref=e338] [cursor=pointer]:
+              - generic [ref=e341]:
+                - img
+          - heading "コメント" [level=2] [ref=e347]:
+            - generic [ref=e348]: コメント
+      - generic [ref=e422]:
+        - generic [ref=e431] [cursor=pointer]:
+          - generic "スポンサー提供 - 今なら初回200円(税込)！ fod.fujitv.co.jp" [ref=e433]:
+            - button "fujitvondemand" [ref=e437]
+            - generic [ref=e440]:
+              - generic [ref=e441]: 今なら初回200円(税込)！
+              - generic [ref=e442]:
+                - generic [ref=e444]:
+                  - generic [ref=e445]: スポンサー
+                  - text: ·
+                - generic [ref=e447]: fod.fujitv.co.jp
+          - link "詳細を見る" [ref=e449]:
+            - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=CvW-FLPf_acW7KIWxrfcPv-Xu4Q3D6r7shgGM3bjF1BWwkB8QASAAYInjx4T4E4IBF2NhLXB1Yi02MjE5ODExNzQ3MDQ5MzcxoAGpqvWIKakC_izbkFZpOz6oAwSqBKQDT9A-a-BDmFptpVXQ2hC7tgWxDB0X7TYMH_JpfhlefFIhZ4eCLf9oIuEWh6huX8R9XPPR9mk0SBJ9WGYNGj_fAuqAHRpH5UfBVYhiZNCyd4Qwr0IOVTwcRRTv0OPr2MjoUOGovgHbxIK67asFZFi6EyYEl_HwoazykZ4YDny3aLhk_ei_i7W1jljvQu6WOCAiwmsl8VTKAk_okvWhLYgA3SIbNx7jXqxt_FpiG9-ckspEhtm4UD_YTk7vEaCymDc19j3ad0YMEzOMzB7b4HLf6ELmkV4bfQZo0sLuxZT-bKxevV4Ejd0fCTSF677oC6SAaTuHGvR11eX8VAno7v1mrx8-ow32p9rvMkegZpoIIATLXj9uQ6cLfVPP2mywt9SqA2NhvL7Rv4WPjBdgbaFjxrIKUgMjQ6nbXv0QPoM7qZeAGF-gp9euHgnjC0mEo9ZFCNmsOgulQuTIqGIzloii9O4O1thsSTLSbO5umlj3nBK8IMYPxNOgUo6aWg-24skX6gHNwqvNfpNmspAQ0_1AZwuS33Tw2p9dthzFkqwFIYqMPv1giAX0g-fOWKAGVIAHqeLF6AOQBwSoB_LAsQKoB7jEsQKoB-G2sQKoB6XPsQKoB-edsQKoB-idsQKoB--1sQKoB_C1sQKoB_nTsQKoB8nasQKoB6ngsQKoB4QIqAem1LECqAeo0huoB7YHqAewm7ECqAeusbECqAfmvLECqAf9srECqAf3uLECqAf4uLECqAfIz7ECqAfJz7ECqAfNx7ECqAfx0bECqAf81bECqAf71bECqAeM1rECqAeL1rECqAea4rECqAeb4rECqAea4bECqAed17ECqAed1LECqAeBxhuoB_yvsQKoB6vFG6gHnNwbqAe3obECqAfVqbECqAfn2rECqAfetbECqAfqsbECqAe-t7ECqAeZtbECqAeFwbECqAfrpbECqAfKqbECkggLQU5CTUJYSER6cGeoCAHSCCwIgEEQARheMgKCAjoPgGOAwICAgICAgAKqgIAQSNmg0jVQFFig6tTK362UA_IIH2NhLXl0LWhvc3QtcHViLTk4MDk5MzI4Njc0NjEyMDWaCTFodHRwczovL2ZvZC5mdWppdHYuY28uanAvY3Avc3ByaW5nMjAyNi9saW5ldXAyLWxwsQnZ29YWomAzB8gJGMgJjwHICcIBmAsBoQugcR24pB5oJ7oLSQgBEAEYBiABKAEwEEABSAFgAGgAcAKIAQCYAQGiARIKABgAIABYAWAAcAGoAgHYAgKoAQHYAQGAAgGIAhS6Awl2aXRwZXphYWHQCxPSDAIQAdoMJQoKENCJz63Hs4bIeBICAQMaDRj0g-fOWCDtj4Su0wVAAUoCEB-aDQETqg0CSlDIDQHSDc4BaHR0cHM6Ly9mb2QuZnVqaXR2LmNvLmpwL2NwL3NwcmluZzIwMjYvbGluZXVwMi1scD93YWFkPTRlRUVEd3RSJnV0bV9zb3VyY2U9Z29vZ2xlJnV0bV9tZWRpdW09Y3BjJnV0bV9jYW1wYWlnbj1UVl9zcHJpbmdDUDIwMjZfMl90cnVldmlld192dmMmdXRtX2NvbnRlbnQ9bV9zcHJpbmdfQl8zMCZnYWRfc291cmNlPTImZ2FkX2NhbXBhaWduaWQ9MjM3ODc1ODYwMza4E____________wGIFAOwFAHAFcmAgEDQFQHYFQGQFgGYFgGAFwGKFxYIAxgBIAEoATABOAFAAUgBUAFYAWACoBcBqRdt3TqEg8fOpboXBigAMAA4AdAYAfAYAcIZAggB&ase=2&gclid=EAIaIQobChMIxYHVyt-tlAMVhVjrCB2_sjvcEAEYASAAEgL01_D_BwE&num=1&cid=CAASwwHkaP-PHuWxPLbEwr6xi9-7_uRTAX5CjIi0Pa5w9QiYSsW1F1684IYAlRjvn-XQsGrgGLcGZiSe0j7tJV42DD6SyC85pZ3ZS80Yj8UoLmIzsdu-P_8nV9OENrf3kI6aviOnhuJCM-EkEJQWcxojsRIiKQQC30fHlSLWggtEUOILYJUkGQ-djIAAb8wxJUo5ju19lJ0iohH0ePU9x4CLS9JwLUuYBHIBX1LaNjO7bS_F4UXog6U1y8V0WBfnltU6W07aHFM&ad_cpn=%5BAD_CPN%5D&sig=AOD64_0-zTM2vZWbj3plDaJM351wxN67SQ&client=ca-pub-6219811747049371&label=video_click_to_advertiser_site&ctype=110&ms=%5BCLICK_MS%5D&adclksrc=%5BCLICK_SOURCE%5D
+            - generic [ref=e450]: 詳細を見る
+          - button "マイ アド センター" [ref=e456]:
+            - generic [ref=e460]:
+              - img
+        - generic [ref=e467]:
+          - generic [ref=e476]:
+            - generic [ref=e477] [cursor=pointer]:
+              - generic [ref=e478]:
+                - link "Google Chrome をダウンロード" [ref=e481]:
+                  - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5DbQLPf_aZO8KK_Ir7wPj4Ph8A25mLfhhgH6gNGByBRkEAEgAGCJ48eE-BOCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABjpDcsSioAwTIAwqqBN4CT9D8FXrm93tqRcNxcNUtZ9UVFhDlMWOmjHahWbfkiKzmJNJEEv5eE4gUDiWjcrGn_xLndeZ0rso8zqMNPiFMtp0nYBMa-b6m5z62_ZOEEREE6pie6JNav-yJ5ppMyMuvzw7G11RM1BKHtzf4U54cvaPr8QXhj27foI2N_te1WM5kxFqikkDEL646XK6W3KUVW3y3JIFpAIRGMi2spadWo-fJYGBrVZFXAHVRhAYX3xUSOpXbwEcOQg8jECc-_y8LDH0e4DzvjvVBBwvC4EKDhuP3n-6XdhU5geZ1y1-iOKKmtrHVCFaljs7RWVbcg1Bhx3NtnFb_Oa9L609tfKJUYgS8gLqoVFoM8aeVYPJRFX2Kcq58lC4goHdklkiVopM2Bf-28yKSImTLUUsEKrxOvBeZm7EaWnMxUBhk0tl6VCtJUD37dl33jF6RmWBNVTsKW6y4fA9EyZ8UQIE5fTOIBcOdpPhRkgUJCBNoAnir1bMjoAZugAfjic0ikAcEqAfywLECqAe4xLECqAfhtrECqAelz7ECqAfnnbECqAfonbECqAfvtbECqAfwtbECqAf507ECqAfJ2rECqAep4LECqAeECKgHptSxAqgHqNIbqAe2B6gHsdwbqAewm7ECqAeusbECqAfmvLECqAf9srECqAf3uLECqAf4uLECqAfIz7ECqAfJz7ECqAfNx7ECqAfx0bECqAf81bECqAf71bECqAeM1rECqAeL1rECqAea4rECqAeb4rECqAea4bECqAed17ECqAed1LECqAeBxhuoB_yvsQKoB6vFG6gHt6GxAqgH1amxAqgH3rWxAqgH6rGxAqgHvrexAqgHmbWxAqgHhcGxAqgH66WxAqgHyqmxAqgHwsixAtIILAiAQRABGF4yAoICOg-AY4DAgICAgICAAqqAgBBI2aDSNVAUWIjy1MrfrZQD8ggfY2EteXQtaG9zdC1wdWItOTgwOTkzMjg2NzQ2MTIwNZoJNWh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vaW50bC9qYV9qcC9jaHJvbWUvZHIvZG93bmxvYWQvsQmVs0mHakL208gJAMgJigKhC6BxHbikHmgnugtDCAEQBRgEIAgoATAaQAFIAFgBYABoAHABiAEAmAEBogEMCgBYAXABqAIB2AICqAEB2AEBgAIBiAIGugMHdml0cGVyYtALEuALAaIMNWIXChVjb20uZ29vZ2xlLmNocm9tZS5pb3NqFQoTY29tLndhbG1hcnQuYW5kcm9pZHgAiAEA0gwCEAHaDCUKChCQ2fmR6LGCuygSAgEDGg0Yw52k-FEgjt6tmcgFQAFKAhAfmg0BEqoNAkpQyA0B0g2LA2h0dHBzOi8vYWQuZG91YmxlY2xpY2submV0L2RkbS90cmFja2Nsay9ONTI5NS41MDg3ODEzREVNQU5ER0VOL0IzNDYxODA0OS40MzYyNDEwNzg7ZGNfdHJrX2FpZD02Mjg1MTg4NDY7ZGNfdHJrX2NpZD0yNDY3NTc1NjM7ZGNfbGF0PTtkY19yZGlkPTt0YWdfZm9yX2NoaWxkX2RpcmVjdGVkX3RyZWF0bWVudD07dGZ1YT07Z2Rwcj0ke0dEUFJ9O2dkcHJfY29uc2VudD0ke0dEUFJfQ09OU0VOVF83NTV9O2x0ZD07ZGNfdGR2PTE7ZGNfcnVpPTE7ZGNfZXBzPUFIYXM4Y0M5MkZwM2h5RnF0a1gtY3ZkRW1TN1haVGE3U2FDNGozUkRRS2JGbU1IRHcyekllb19kZHVGbE9MSHJ0ZEVDWHJnQjRzSUNDXzlDVXV0ZWhRO2RjX3B1YmlkPTY_Z2FkX3NvdXJjZT0yJmdhZF9jYW1wYWlnbmlkPTIxOTk1NTIzNzc5uBP___________8BiBQEsBQBwBWBgIBA0BUB2BUBmBYB4hYCCAGAFwGKFxYIAxgBIAEoATABOAFAAUgBUAFYAWACoBcBuhcGKAAwADgB0BgB8BgBwhkCCAE&ase=2&gclid=EAIaIQobChMIk4LVyt-tlAMVL-SLAR2PQRjeEAEYASAAEgJhpvD_BwE&num=1&cid=CAASwwHkaCoyhgjTO94km-Tcqv9aZejllSNLUGO8oHwjMM_mEPws2T6OuIVzCv0ocQVDZKX-k7NqYt7j-T1ybZc14ApnGd5DPGE570lHlj4DvDavuKn6labF9qT7GvimLnPbpN5sd69GvBz2qjHQRfQJKhQ1kqL7xXnLTzuFtxU3cpTRt97hcxKSXs0FsWJNKFTz1ldcREPmtwsu20bevOUT824F7Fmz1rwMp4wpc5Ql-pifaIsIMo7VJuRIJrUSlfWFJAYkkAk&sig=AOD64_3BOtbDydpaeYxPA1a9QGkTlGrjqw&ms=%5BCLICK_MS%5D&nb=0&nx=%5BNX%5D&ny=%5BNY%5D&dim=%5BDIM%5D
+                - link "Chrome は危険なサイト等からユーザーを守ります" [ref=e484]:
+                  - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5DbQLPf_aZO8KK_Ir7wPj4Ph8A25mLfhhgH6gNGByBRkEAEgAGCJ48eE-BOCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABjpDcsSioAwTIAwqqBN4CT9D8FXrm93tqRcNxcNUtZ9UVFhDlMWOmjHahWbfkiKzmJNJEEv5eE4gUDiWjcrGn_xLndeZ0rso8zqMNPiFMtp0nYBMa-b6m5z62_ZOEEREE6pie6JNav-yJ5ppMyMuvzw7G11RM1BKHtzf4U54cvaPr8QXhj27foI2N_te1WM5kxFqikkDEL646XK6W3KUVW3y3JIFpAIRGMi2spadWo-fJYGBrVZFXAHVRhAYX3xUSOpXbwEcOQg8jECc-_y8LDH0e4DzvjvVBBwvC4EKDhuP3n-6XdhU5geZ1y1-iOKKmtrHVCFaljs7RWVbcg1Bhx3NtnFb_Oa9L609tfKJUYgS8gLqoVFoM8aeVYPJRFX2Kcq58lC4goHdklkiVopM2Bf-28yKSImTLUUsEKrxOvBeZm7EaWnMxUBhk0tl6VCtJUD37dl33jF6RmWBNVTsKW6y4fA9EyZ8UQIE5fTOIBcOdpPhRkgUJCBNoAnir1bMjoAZugAfjic0ikAcEqAfywLECqAe4xLECqAfhtrECqAelz7ECqAfnnbECqAfonbECqAfvtbECqAfwtbECqAf507ECqAfJ2rECqAep4LECqAeECKgHptSxAqgHqNIbqAe2B6gHsdwbqAewm7ECqAeusbECqAfmvLECqAf9srECqAf3uLECqAf4uLECqAfIz7ECqAfJz7ECqAfNx7ECqAfx0bECqAf81bECqAf71bECqAeM1rECqAeL1rECqAea4rECqAeb4rECqAea4bECqAed17ECqAed1LECqAeBxhuoB_yvsQKoB6vFG6gHt6GxAqgH1amxAqgH3rWxAqgH6rGxAqgHvrexAqgHmbWxAqgHhcGxAqgH66WxAqgHyqmxAqgHwsixAtIILAiAQRABGF4yAoICOg-AY4DAgICAgICAAqqAgBBI2aDSNVAUWIjy1MrfrZQD8ggfY2EteXQtaG9zdC1wdWItOTgwOTkzMjg2NzQ2MTIwNZoJNWh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vaW50bC9qYV9qcC9jaHJvbWUvZHIvZG93bmxvYWQvsQmVs0mHakL208gJAMgJigKhC6BxHbikHmgnugtDCAEQBRgEIAgoATAaQAFIAFgBYABoAHABiAEAmAEBogEMCgBYAXABqAIB2AICqAEB2AEBgAIBiAIGugMHdml0cGVyYtALEuALAaIMNWIXChVjb20uZ29vZ2xlLmNocm9tZS5pb3NqFQoTY29tLndhbG1hcnQuYW5kcm9pZHgAiAEA0gwCEAHaDCUKChCQ2fmR6LGCuygSAgEDGg0Yw52k-FEgjt6tmcgFQAFKAhAfmg0BEqoNAkpQyA0B0g2LA2h0dHBzOi8vYWQuZG91YmxlY2xpY2submV0L2RkbS90cmFja2Nsay9ONTI5NS41MDg3ODEzREVNQU5ER0VOL0IzNDYxODA0OS40MzYyNDEwNzg7ZGNfdHJrX2FpZD02Mjg1MTg4NDY7ZGNfdHJrX2NpZD0yNDY3NTc1NjM7ZGNfbGF0PTtkY19yZGlkPTt0YWdfZm9yX2NoaWxkX2RpcmVjdGVkX3RyZWF0bWVudD07dGZ1YT07Z2Rwcj0ke0dEUFJ9O2dkcHJfY29uc2VudD0ke0dEUFJfQ09OU0VOVF83NTV9O2x0ZD07ZGNfdGR2PTE7ZGNfcnVpPTE7ZGNfZXBzPUFIYXM4Y0M5MkZwM2h5RnF0a1gtY3ZkRW1TN1haVGE3U2FDNGozUkRRS2JGbU1IRHcyekllb19kZHVGbE9MSHJ0ZEVDWHJnQjRzSUNDXzlDVXV0ZWhRO2RjX3B1YmlkPTY_Z2FkX3NvdXJjZT0yJmdhZF9jYW1wYWlnbmlkPTIxOTk1NTIzNzc5uBP___________8BiBQEsBQBwBWBgIBA0BUB2BUBmBYB4hYCCAGAFwGKFxYIAxgBIAEoATABOAFAAUgBUAFYAWACoBcBuhcGKAAwADgB0BgB8BgBwhkCCAE&ase=2&gclid=EAIaIQobChMIk4LVyt-tlAMVL-SLAR2PQRjeEAEYASAAEgJhpvD_BwE&num=1&cid=CAASwwHkaCoyhgjTO94km-Tcqv9aZejllSNLUGO8oHwjMM_mEPws2T6OuIVzCv0ocQVDZKX-k7NqYt7j-T1ybZc14ApnGd5DPGE570lHlj4DvDavuKn6labF9qT7GvimLnPbpN5sd69GvBz2qjHQRfQJKhQ1kqL7xXnLTzuFtxU3cpTRt97hcxKSXs0FsWJNKFTz1ldcREPmtwsu20bevOUT824F7Fmz1rwMp4wpc5Ql-pifaIsIMo7VJuRIJrUSlfWFJAYkkAk&sig=AOD64_3BOtbDydpaeYxPA1a9QGkTlGrjqw&ms=%5BCLICK_MS%5D&nb=7&nx=%5BNX%5D&ny=%5BNY%5D&dim=%5BDIM%5D
+                - generic [ref=e485]:
+                  - generic [ref=e487]:
+                    - generic [ref=e488]: スポンサー
+                    - text: ·
+                  - generic [ref=e490]: Google Chrome
+              - button "マイ アド センター" [ref=e493]:
+                - generic [ref=e497]:
+                  - img
+            - link "ダウンロード" [ref=e502] [cursor=pointer]:
+              - /url: https://www.googleadservices.com/pagead/aclk?sa=L&ai=C5DbQLPf_aZO8KK_Ir7wPj4Ph8A25mLfhhgH6gNGByBRkEAEgAGCJ48eE-BOCARdjYS1wdWItNjIxOTgxMTc0NzA0OTM3MaABjpDcsSioAwTIAwqqBN4CT9D8FXrm93tqRcNxcNUtZ9UVFhDlMWOmjHahWbfkiKzmJNJEEv5eE4gUDiWjcrGn_xLndeZ0rso8zqMNPiFMtp0nYBMa-b6m5z62_ZOEEREE6pie6JNav-yJ5ppMyMuvzw7G11RM1BKHtzf4U54cvaPr8QXhj27foI2N_te1WM5kxFqikkDEL646XK6W3KUVW3y3JIFpAIRGMi2spadWo-fJYGBrVZFXAHVRhAYX3xUSOpXbwEcOQg8jECc-_y8LDH0e4DzvjvVBBwvC4EKDhuP3n-6XdhU5geZ1y1-iOKKmtrHVCFaljs7RWVbcg1Bhx3NtnFb_Oa9L609tfKJUYgS8gLqoVFoM8aeVYPJRFX2Kcq58lC4goHdklkiVopM2Bf-28yKSImTLUUsEKrxOvBeZm7EaWnMxUBhk0tl6VCtJUD37dl33jF6RmWBNVTsKW6y4fA9EyZ8UQIE5fTOIBcOdpPhRkgUJCBNoAnir1bMjoAZugAfjic0ikAcEqAfywLECqAe4xLECqAfhtrECqAelz7ECqAfnnbECqAfonbECqAfvtbECqAfwtbECqAf507ECqAfJ2rECqAep4LECqAeECKgHptSxAqgHqNIbqAe2B6gHsdwbqAewm7ECqAeusbECqAfmvLECqAf9srECqAf3uLECqAf4uLECqAfIz7ECqAfJz7ECqAfNx7ECqAfx0bECqAf81bECqAf71bECqAeM1rECqAeL1rECqAea4rECqAeb4rECqAea4bECqAed17ECqAed1LECqAeBxhuoB_yvsQKoB6vFG6gHt6GxAqgH1amxAqgH3rWxAqgH6rGxAqgHvrexAqgHmbWxAqgHhcGxAqgH66WxAqgHyqmxAqgHwsixAtIILAiAQRABGF4yAoICOg-AY4DAgICAgICAAqqAgBBI2aDSNVAUWIjy1MrfrZQD8ggfY2EteXQtaG9zdC1wdWItOTgwOTkzMjg2NzQ2MTIwNZoJNWh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vaW50bC9qYV9qcC9jaHJvbWUvZHIvZG93bmxvYWQvsQmVs0mHakL208gJAMgJigKhC6BxHbikHmgnugtDCAEQBRgEIAgoATAaQAFIAFgBYABoAHABiAEAmAEBogEMCgBYAXABqAIB2AICqAEB2AEBgAIBiAIGugMHdml0cGVyYtALEuALAaIMNWIXChVjb20uZ29vZ2xlLmNocm9tZS5pb3NqFQoTY29tLndhbG1hcnQuYW5kcm9pZHgAiAEA0gwCEAHaDCUKChCQ2fmR6LGCuygSAgEDGg0Yw52k-FEgjt6tmcgFQAFKAhAfmg0BEqoNAkpQyA0B0g2LA2h0dHBzOi8vYWQuZG91YmxlY2xpY2submV0L2RkbS90cmFja2Nsay9ONTI5NS41MDg3ODEzREVNQU5ER0VOL0IzNDYxODA0OS40MzYyNDEwNzg7ZGNfdHJrX2FpZD02Mjg1MTg4NDY7ZGNfdHJrX2NpZD0yNDY3NTc1NjM7ZGNfbGF0PTtkY19yZGlkPTt0YWdfZm9yX2NoaWxkX2RpcmVjdGVkX3RyZWF0bWVudD07dGZ1YT07Z2Rwcj0ke0dEUFJ9O2dkcHJfY29uc2VudD0ke0dEUFJfQ09OU0VOVF83NTV9O2x0ZD07ZGNfdGR2PTE7ZGNfcnVpPTE7ZGNfZXBzPUFIYXM4Y0M5MkZwM2h5RnF0a1gtY3ZkRW1TN1haVGE3U2FDNGozUkRRS2JGbU1IRHcyekllb19kZHVGbE9MSHJ0ZEVDWHJnQjRzSUNDXzlDVXV0ZWhRO2RjX3B1YmlkPTY_Z2FkX3NvdXJjZT0yJmdhZF9jYW1wYWlnbmlkPTIxOTk1NTIzNzc5uBP___________8BiBQEsBQBwBWBgIBA0BUB2BUBmBYB4hYCCAGAFwGKFxYIAxgBIAEoATABOAFAAUgBUAFYAWACoBcBuhcGKAAwADgB0BgB8BgBwhkCCAE&ase=2&gclid=EAIaIQobChMIk4LVyt-tlAMVL-SLAR2PQRjeEAEYASAAEgJhpvD_BwE&num=1&cid=CAASwwHkaCoyhgjTO94km-Tcqv9aZejllSNLUGO8oHwjMM_mEPws2T6OuIVzCv0ocQVDZKX-k7NqYt7j-T1ybZc14ApnGd5DPGE570lHlj4DvDavuKn6labF9qT7GvimLnPbpN5sd69GvBz2qjHQRfQJKhQ1kqL7xXnLTzuFtxU3cpTRt97hcxKSXs0FsWJNKFTz1ldcREPmtwsu20bevOUT824F7Fmz1rwMp4wpc5Ql-pifaIsIMo7VJuRIJrUSlfWFJAYkkAk&sig=AOD64_3BOtbDydpaeYxPA1a9QGkTlGrjqw&ms=%5BCLICK_MS%5D&nb=8&nx=%5BNX%5D&ny=%5BNY%5D&dim=%5BDIM%5D
+              - generic [ref=e503]: ダウンロード
+          - generic [ref=e508] [cursor=pointer]:
+            - link [ref=e509]:
+              - /url: /watch?v=yPYZpwSpKmA&list=RDyPYZpwSpKmA&start_radio=1&pp=oAcB
+              - generic [ref=e517]:
+                - generic [ref=e520]:
+                  - img
+                - generic [ref=e521]: 3:24
+            - generic [ref=e523]:
+              - generic [ref=e524]:
+                - heading "Rick Astley - Together Forever (Official Video) [4K Remaster] 3 分 24 秒" [level=3] [ref=e525]:
+                  - link "Rick Astley - Together Forever (Official Video) [4K Remaster] 3 分 24 秒" [ref=e526]:
+                    - /url: /watch?v=yPYZpwSpKmA&list=RDyPYZpwSpKmA&start_radio=1&pp=oAcB
+                    - text: Rick Astley - Together Forever (Official Video) [4K Remaster]
+                - generic [ref=e528]:
+                  - group [ref=e529]:
+                    - generic [ref=e530]:
+                      - text: Rick Astley
+                      - img [ref=e533]:
+                        - generic [ref=e535]:
+                          - img
+                  - group [ref=e536]:
+                    - generic [ref=e537]: 2億回視聴
+                    - generic [ref=e538]: •
+                    - generic [ref=e539]: 16 年前
+              - button "その他の操作" [ref=e542]:
+                - generic [ref=e546]:
+                  - img
+          - generic [ref=e551] [cursor=pointer]:
+            - link [ref=e552]:
+              - /url: /watch?v=lYBUbBu4W08&list=RDlYBUbBu4W08&start_radio=1&pp=oAcB
+              - generic [ref=e558]:
+                - generic [ref=e561]:
+                  - img
+                - generic [ref=e562]: 3:34
+            - generic [ref=e564]:
+              - generic [ref=e565]:
+                - heading "Never Gonna Give You Up 3 分 34 秒" [level=3] [ref=e566]:
+                  - link "Never Gonna Give You Up 3 分 34 秒" [ref=e567]:
+                    - /url: /watch?v=lYBUbBu4W08&list=RDlYBUbBu4W08&start_radio=1&pp=oAcB
+                    - text: Never Gonna Give You Up
+                - generic [ref=e569]:
+                  - group [ref=e570]:
+                    - generic [ref=e571]:
+                      - text: Rick Astley
+                      - img [ref=e574]:
+                        - generic [ref=e576]:
+                          - img
+                  - group [ref=e577]:
+                    - generic [ref=e578]: 1.2億回視聴
+                    - generic [ref=e579]: •
+                    - generic [ref=e580]: 4 年前
+              - button "その他の操作" [ref=e583]:
+                - generic [ref=e587]:
+                  - img
+          - generic [ref=e592] [cursor=pointer]:
+            - link [ref=e593]:
+              - /url: /watch?v=KNGZPz9NehU&list=RDKNGZPz9NehU&start_radio=1&pp=oAcB
+              - generic [ref=e599]:
+                - generic [ref=e602]:
+                  - img
+                - generic [ref=e603]: 3:34:43
+            - generic [ref=e605]:
+              - generic [ref=e606]:
+                - heading "Relájate Completamente con Esta Música Suave 🌿 Alivio del Estrés y Sueño Profundo 3 時間 34 分" [level=3] [ref=e607]:
+                  - link "Relájate Completamente con Esta Música Suave 🌿 Alivio del Estrés y Sueño Profundo 3 時間 34 分" [ref=e608]:
+                    - /url: /watch?v=KNGZPz9NehU&list=RDKNGZPz9NehU&start_radio=1&pp=oAcB
+                    - text: Relájate Completamente con Esta Música Suave 🌿 Alivio del Estrés y Sueño Profundo
+                - generic [ref=e610]:
+                  - group [ref=e611]:
+                    - generic [ref=e612]: Soothing Forest、Enjoy Peace
+                  - group [ref=e613]:
+                    - generic [ref=e614]: 2.9万回視聴
+                    - generic [ref=e615]: •
+                    - generic [ref=e616]: 17 時間前
+                  - group [ref=e617]:
+                    - generic [ref=e621]: 新着
+              - button "その他の操作" [ref=e624]:
+                - generic [ref=e628]:
+                  - img
+          - generic [ref=e633] [cursor=pointer]:
+            - link [ref=e634]:
+              - /url: /watch?v=V44ejT6GRQA
+              - generic [ref=e641]: 10:27
+            - generic [ref=e643]:
+              - generic [ref=e644]:
+                - heading "「Take On Me」の意外な裏話｜A-haが世界を変えた革命的1曲 10 分 27 秒" [level=3] [ref=e645]:
+                  - link "「Take On Me」の意外な裏話｜A-haが世界を変えた革命的1曲 10 分 27 秒" [ref=e646]:
+                    - /url: /watch?v=V44ejT6GRQA
+                    - text: 「Take On Me」の意外な裏話｜A-haが世界を変えた革命的1曲
+                - generic [ref=e648]:
+                  - group [ref=e649]:
+                    - generic [ref=e650]: 80'sに乾杯
+                  - group [ref=e651]:
+                    - generic [ref=e652]: 69万回視聴
+                    - generic [ref=e653]: •
+                    - generic [ref=e654]: 6 か月前
+              - button "その他の操作" [ref=e657]:
+                - generic [ref=e661]:
+                  - img
+          - generic [ref=e666] [cursor=pointer]:
+            - link [ref=e667]:
+              - /url: /watch?v=RrESvSRNpeo&list=RDRrESvSRNpeo&start_radio=1&pp=oAcB
+              - generic [ref=e675]:
+                - generic [ref=e678]:
+                  - img
+                - generic [ref=e679]: 3:34
+            - generic [ref=e681]:
+              - generic [ref=e682]:
+                - heading "【日本語字幕】Rick Astley - Never Gonna Give You Up 3 分 34 秒" [level=3] [ref=e683]:
+                  - link "【日本語字幕】Rick Astley - Never Gonna Give You Up 3 分 34 秒" [ref=e684]:
+                    - /url: /watch?v=RrESvSRNpeo&list=RDRrESvSRNpeo&start_radio=1&pp=oAcB
+                    - text: 【日本語字幕】Rick Astley - Never Gonna Give You Up
+                - generic [ref=e686]:
+                  - group [ref=e687]:
+                    - generic [ref=e688]:
+                      - text: Rick Astley
+                      - img [ref=e691]:
+                        - generic [ref=e693]:
+                          - img
+                  - group [ref=e694]:
+                    - generic [ref=e695]: 886万回視聴
+                    - generic [ref=e696]: •
+                    - generic [ref=e697]: 9 か月前
+              - button "その他の操作" [ref=e700]:
+                - generic [ref=e704]:
+                  - img
+          - generic [ref=e709] [cursor=pointer]:
+            - link [ref=e710]:
+              - /url: /watch?v=D9BI69GFWvs
+              - generic [ref=e717]: 25:13
+            - generic [ref=e719]:
+              - generic [ref=e720]:
+                - heading "【50歳以上必須】申請しないと大損！ねんきん定期便に載らない年金4選！ 25 分" [level=3] [ref=e721]:
+                  - link "【50歳以上必須】申請しないと大損！ねんきん定期便に載らない年金4選！ 25 分" [ref=e722]:
+                    - /url: /watch?v=D9BI69GFWvs
+                    - text: 【50歳以上必須】申請しないと大損！ねんきん定期便に載らない年金4選！
+                - generic [ref=e724]:
+                  - group [ref=e725]:
+                    - generic [ref=e726]: 年金・給付金完全攻略チャンネル
+                  - group [ref=e727]:
+                    - generic [ref=e728]: 303万回視聴
+                    - generic [ref=e729]: •
+                    - generic [ref=e730]: 1 か月前
+              - button "その他の操作" [ref=e733]:
+                - generic [ref=e737]:
+                  - img
+          - generic [ref=e742] [cursor=pointer]:
+            - link [ref=e743]:
+              - /url: /watch?v=zRVjZ2DJ9Cg&list=RDzRVjZ2DJ9Cg&start_radio=1&pp=oAcB
+              - generic [ref=e749]:
+                - generic [ref=e752]:
+                  - img
+                - generic [ref=e753]: 3:51
+            - generic [ref=e755]:
+              - generic [ref=e756]:
+                - heading "Rick Astley - Waiting On You (Official Video) 3 分 51 秒" [level=3] [ref=e757]:
+                  - link "Rick Astley - Waiting On You (Official Video) 3 分 51 秒" [ref=e758]:
+                    - /url: /watch?v=zRVjZ2DJ9Cg&list=RDzRVjZ2DJ9Cg&start_radio=1&pp=oAcB
+                    - text: Rick Astley - Waiting On You (Official Video)
+                - generic [ref=e760]:
+                  - group [ref=e761]:
+                    - generic [ref=e762]:
+                      - text: Rick Astley
+                      - img [ref=e765]:
+                        - generic [ref=e767]:
+                          - img
+                  - group [ref=e768]:
+                    - generic [ref=e769]: 40万回視聴
+                    - generic [ref=e770]: •
+                    - generic [ref=e771]: 1 か月前
+              - button "その他の操作" [ref=e774]:
+                - generic [ref=e778]:
+                  - img
+          - generic [ref=e783] [cursor=pointer]:
+            - link [ref=e784]:
+              - /url: /watch?v=p3OBeC1LVA8&list=RDp3OBeC1LVA8&start_radio=1&pp=oAcB0gcJCQMLAYcqIYzv
+              - generic [ref=e790]:
+                - generic [ref=e793]:
+                  - img
+                - generic [ref=e794]: 2:01:59
+            - generic [ref=e796]:
+              - generic [ref=e797]:
+                - heading "ラグジュアリー・チルアウト - 優雅な背景音楽と深いリラックス・バイブス 2026! 2 時間 1 分" [level=3] [ref=e798]:
+                  - link "ラグジュアリー・チルアウト - 優雅な背景音楽と深いリラックス・バイブス 2026! 2 時間 1 分" [ref=e799]:
+                    - /url: /watch?v=p3OBeC1LVA8&list=RDp3OBeC1LVA8&start_radio=1&pp=oAcB0gcJCQMLAYcqIYzv
+                    - text: ラグジュアリー・チルアウト - 優雅な背景音楽と深いリラックス・バイブス 2026!
+                - generic [ref=e801]:
+                  - group [ref=e802]:
+                    - generic [ref=e803]: Aurora Luxe
+                  - group [ref=e804]:
+                    - generic [ref=e805]: 4499回視聴
+                    - generic [ref=e806]: •
+                    - generic [ref=e807]: 19 時間前
+                  - group [ref=e808]:
+                    - generic [ref=e812]: 新着
+              - button "その他の操作" [ref=e815]:
+                - generic [ref=e819]:
+                  - img
+          - generic [ref=e824] [cursor=pointer]:
+            - link [ref=e825]:
+              - /url: /watch?v=nsCIeklgp1M&list=RDnsCIeklgp1M&start_radio=1&pp=oAcB
+              - generic [ref=e831]:
+                - generic [ref=e834]:
+                  - img
+                - generic [ref=e835]: 9:20
+            - generic [ref=e837]:
+              - generic [ref=e838]:
+                - heading "Rick Astley - Never Gonna Give You Up | Glastonbury 2023 9 分 20 秒" [level=3] [ref=e839]:
+                  - link "Rick Astley - Never Gonna Give You Up | Glastonbury 2023 9 分 20 秒" [ref=e840]:
+                    - /url: /watch?v=nsCIeklgp1M&list=RDnsCIeklgp1M&start_radio=1&pp=oAcB
+                    - text: Rick Astley - Never Gonna Give You Up | Glastonbury 2023
+                - generic [ref=e842]:
+                  - group [ref=e843]:
+                    - generic [ref=e844]:
+                      - text: BBC Music
+                      - img [ref=e847]:
+                        - generic [ref=e849]:
+                          - img
+                  - group [ref=e850]:
+                    - generic [ref=e851]: 600万回視聴
+                    - generic [ref=e852]: •
+                    - generic [ref=e853]: 2 年前
+              - button "その他の操作" [ref=e856]:
+                - generic [ref=e860]:
+                  - img
+          - generic [ref=e865] [cursor=pointer]:
+            - link [ref=e866]:
+              - /url: /watch?v=E9de-cmycx8&list=RDE9de-cmycx8&start_radio=1&pp=oAcB
+              - generic [ref=e874]:
+                - generic [ref=e877]:
+                  - img
+                - generic [ref=e878]: 3:24
+            - generic [ref=e880]:
+              - generic [ref=e881]:
+                - heading "Rick Astley - Together Forever (Official HD Video) 3 分 24 秒" [level=3] [ref=e882]:
+                  - link "Rick Astley - Together Forever (Official HD Video) 3 分 24 秒" [ref=e883]:
+                    - /url: /watch?v=E9de-cmycx8&list=RDE9de-cmycx8&start_radio=1&pp=oAcB
+                    - text: Rick Astley - Together Forever (Official HD Video)
+                - generic [ref=e885]:
+                  - group [ref=e886]:
+                    - generic [ref=e887]:
+                      - text: Rick Astley
+                      - img [ref=e890]:
+                        - generic [ref=e892]:
+                          - img
+                  - group [ref=e893]:
+                    - generic [ref=e894]: 2681万回視聴
+                    - generic [ref=e895]: •
+                    - generic [ref=e896]: 6 年前
+              - button "その他の操作" [ref=e899]:
+                - generic [ref=e903]:
+                  - img
+          - generic [ref=e908] [cursor=pointer]:
+            - link [ref=e909]:
+              - /url: /watch?v=5sxoi51EgF4&list=RD5sxoi51EgF4&start_radio=1&pp=oAcB
+              - generic [ref=e915]:
+                - generic [ref=e918]:
+                  - img
+                - generic [ref=e919]: 1:39:45
+            - generic [ref=e921]:
+              - generic [ref=e922]:
+                - heading "癒しの音楽🌿 ストレス、不安、うつを軽減するリラックスできる音楽 1 時間 39 分" [level=3] [ref=e923]:
+                  - link "癒しの音楽🌿 ストレス、不安、うつを軽減するリラックスできる音楽 1 時間 39 分" [ref=e924]:
+                    - /url: /watch?v=5sxoi51EgF4&list=RD5sxoi51EgF4&start_radio=1&pp=oAcB
+                    - text: 癒しの音楽🌿 ストレス、不安、うつを軽減するリラックスできる音楽
+                - generic [ref=e926]:
+                  - group [ref=e927]:
+                    - generic [ref=e928]: Mind Healing
+                  - group [ref=e929]:
+                    - generic [ref=e930]: 4986回視聴
+                    - generic [ref=e931]: •
+                    - generic [ref=e932]: 19 時間前
+                  - group [ref=e933]:
+                    - generic [ref=e937]: 新着
+              - button "その他の操作" [ref=e940]:
+                - generic [ref=e944]:
+                  - img
+          - generic [ref=e949] [cursor=pointer]:
+            - link [ref=e950]:
+              - /url: /watch?v=yJzPglmpQS0
+              - generic [ref=e957]: 12:19
+            - generic [ref=e959]:
+              - generic [ref=e960]:
+                - heading "リック・アストリー「Never Gonna Give You Up」21歳の無名青年が世界1位→引退→ネットで復活の奇跡 12 分 19 秒" [level=3] [ref=e961]:
+                  - link "リック・アストリー「Never Gonna Give You Up」21歳の無名青年が世界1位→引退→ネットで復活の奇跡 12 分 19 秒" [ref=e962]:
+                    - /url: /watch?v=yJzPglmpQS0
+                    - text: リック・アストリー「Never Gonna Give You Up」21歳の無名青年が世界1位→引退→ネットで復活の奇跡
+                - generic [ref=e964]:
+                  - group [ref=e965]:
+                    - generic [ref=e966]: 80'sに乾杯
+                  - group [ref=e967]:
+                    - generic [ref=e968]: 29万回視聴
+                    - generic [ref=e969]: •
+                    - generic [ref=e970]: 2 か月前
+              - button "その他の操作" [ref=e973]:
+                - generic [ref=e977]:
+                  - img
+          - generic [ref=e982] [cursor=pointer]:
+            - link [ref=e983]:
+              - /url: /watch?v=j5u0ZEtWq-E&list=RDj5u0ZEtWq-E&start_radio=1&pp=oAcB
+              - generic [ref=e989]:
+                - generic [ref=e992]:
+                  - img
+                - generic [ref=e993]: 1:21:44
+            - generic [ref=e995]:
+              - generic [ref=e996]:
+                - heading "チル・ジャズ - 仕事用・春のジャズ・インストゥルメンタル 1 時間 21 分" [level=3] [ref=e997]:
+                  - link "チル・ジャズ - 仕事用・春のジャズ・インストゥルメンタル 1 時間 21 分" [ref=e998]:
+                    - /url: /watch?v=j5u0ZEtWq-E&list=RDj5u0ZEtWq-E&start_radio=1&pp=oAcB
+                    - text: チル・ジャズ - 仕事用・春のジャズ・インストゥルメンタル
+                - generic [ref=e1000]:
+                  - group [ref=e1001]:
+                    - generic [ref=e1002]: Warm Coffee Melodies
+                  - group [ref=e1003]:
+                    - generic [ref=e1004]: 1.2万回視聴
+                    - generic [ref=e1005]: •
+                    - generic [ref=e1006]: 20 時間前
+                  - group [ref=e1007]:
+                    - generic [ref=e1011]: 新着
+              - button "その他の操作" [ref=e1014]:
+                - generic [ref=e1018]:
+                  - img
+          - generic [ref=e1023] [cursor=pointer]:
+            - link [ref=e1024]:
+              - /url: /watch?v=dlH1XxyJ8jM
+              - generic [ref=e1031]: 3:20
+            - generic [ref=e1033]:
+              - generic [ref=e1034]:
+                - heading "Rick Astley Loves Nutella 3 分 20 秒" [level=3] [ref=e1035]:
+                  - link "Rick Astley Loves Nutella 3 分 20 秒" [ref=e1036]:
+                    - /url: /watch?v=dlH1XxyJ8jM
+                    - text: Rick Astley Loves Nutella
+                - generic [ref=e1038]:
+                  - group [ref=e1039]:
+                    - generic [ref=e1040]:
+                      - text: Just A Happy Troll
+                      - img [ref=e1043]:
+                        - generic [ref=e1045]:
+                          - img
+                  - group [ref=e1046]:
+                    - generic [ref=e1047]: 327万回視聴
+                    - generic [ref=e1048]: •
+                    - generic [ref=e1049]: 3 年前
+              - button "その他の操作" [ref=e1052]:
+                - generic [ref=e1056]:
+                  - img
+          - generic [ref=e1061] [cursor=pointer]:
+            - link [ref=e1062]:
+              - /url: /watch?v=xFrGuyw1V8s&list=RDxFrGuyw1V8s&start_radio=1&pp=oAcB
+              - generic [ref=e1068]:
+                - generic [ref=e1071]:
+                  - img
+                - generic [ref=e1072]: 3:53
+            - generic [ref=e1074]:
+              - generic [ref=e1075]:
+                - heading "ABBA - Dancing Queen (Official Music Video) 3 分 53 秒" [level=3] [ref=e1076]:
+                  - link "ABBA - Dancing Queen (Official Music Video) 3 分 53 秒" [ref=e1077]:
+                    - /url: /watch?v=xFrGuyw1V8s&list=RDxFrGuyw1V8s&start_radio=1&pp=oAcB
+                    - text: ABBA - Dancing Queen (Official Music Video)
+                - generic [ref=e1079]:
+                  - group [ref=e1080]:
+                    - generic [ref=e1081]:
+                      - text: ABBA
+                      - img [ref=e1084]:
+                        - generic [ref=e1086]:
+                          - img
+                  - group [ref=e1087]:
+                    - generic [ref=e1088]: 10億回視聴
+                    - generic [ref=e1089]: •
+                    - generic [ref=e1090]: 16 年前
+              - button "その他の操作" [ref=e1093]:
+                - generic [ref=e1097]:
+                  - img
+          - generic [ref=e1102] [cursor=pointer]:
+            - link [ref=e1103]:
+              - /url: /watch?v=HOhUtRlhrT0&list=RDHOhUtRlhrT0&start_radio=1&pp=oAcB
+              - generic [ref=e1109]:
+                - generic [ref=e1112]:
+                  - img
+                - generic [ref=e1113]: 6:41
+            - generic [ref=e1115]:
+              - generic [ref=e1116]:
+                - heading "Take Me to Your Heart (Autumn Leaves Mix) 6 分 41 秒" [level=3] [ref=e1117]:
+                  - link "Take Me to Your Heart (Autumn Leaves Mix) 6 分 41 秒" [ref=e1118]:
+                    - /url: /watch?v=HOhUtRlhrT0&list=RDHOhUtRlhrT0&start_radio=1&pp=oAcB
+                    - text: Take Me to Your Heart (Autumn Leaves Mix)
+                - generic [ref=e1120]:
+                  - group [ref=e1121]:
+                    - generic [ref=e1122]:
+                      - text: Rick Astley
+                      - img [ref=e1125]:
+                        - generic [ref=e1127]:
+                          - img
+                  - group [ref=e1128]:
+                    - generic [ref=e1129]: 85万回視聴
+                    - generic [ref=e1130]: •
+                    - generic [ref=e1131]: 3 年前
+              - button "その他の操作" [ref=e1134]:
+                - generic [ref=e1138]:
+                  - img
+          - generic [ref=e1143] [cursor=pointer]:
+            - link [ref=e1144]:
+              - /url: /watch?v=djV11Xbc914&list=RDdjV11Xbc914&start_radio=1&pp=oAcB
+              - generic [ref=e1150]:
+                - generic [ref=e1153]:
+                  - img
+                - generic [ref=e1154]: 4:04
+            - generic [ref=e1156]:
+              - generic [ref=e1157]:
+                - heading "a-ha - Take On Me (Official Video) [4K] 4 分 4 秒" [level=3] [ref=e1158]:
+                  - link "a-ha - Take On Me (Official Video) [4K] 4 分 4 秒" [ref=e1159]:
+                    - /url: /watch?v=djV11Xbc914&list=RDdjV11Xbc914&start_radio=1&pp=oAcB
+                    - text: a-ha - Take On Me (Official Video) [4K]
+                - generic [ref=e1161]:
+                  - group [ref=e1162]:
+                    - generic [ref=e1163]:
+                      - text: a-ha
+                      - img [ref=e1166]:
+                        - generic [ref=e1168]:
+                          - img
+                  - group [ref=e1169]:
+                    - generic [ref=e1170]: 24億回視聴
+                    - generic [ref=e1171]: •
+                    - generic [ref=e1172]: 16 年前
+              - button "その他の操作" [ref=e1175]:
+                - generic [ref=e1179]:
+                  - img
+          - generic [ref=e1184] [cursor=pointer]:
+            - link [ref=e1185]:
+              - /url: /watch?v=VEO4uTVYMvY&list=RDVEO4uTVYMvY&start_radio=1&pp=oAcB
+              - generic [ref=e1191]:
+                - generic [ref=e1194]:
+                  - img
+                - generic [ref=e1195]: 2:04:50
+            - generic [ref=e1197]:
+              - generic [ref=e1198]:
+                - heading "Vintage Romance ~ The Most Emotional 60s Love Songs 💝 2 時間 4 分" [level=3] [ref=e1199]:
+                  - link "Vintage Romance ~ The Most Emotional 60s Love Songs 💝 2 時間 4 分" [ref=e1200]:
+                    - /url: /watch?v=VEO4uTVYMvY&list=RDVEO4uTVYMvY&start_radio=1&pp=oAcB
+                    - text: Vintage Romance ~ The Most Emotional 60s Love Songs 💝
+                - generic [ref=e1202]:
+                  - group [ref=e1203]:
+                    - generic [ref=e1204]: Vintage Romance
+                  - group [ref=e1205]:
+                    - generic [ref=e1206]: 1.5万回視聴
+                    - generic [ref=e1207]: •
+                    - generic [ref=e1208]: 17 時間前
+                  - group [ref=e1209]:
+                    - generic [ref=e1213]: 新着
+              - button "その他の操作" [ref=e1216]:
+                - generic [ref=e1220]:
+                  - img
+          - generic [ref=e1225] [cursor=pointer]:
+            - link [ref=e1226]:
+              - /url: /watch?v=eYuUAGXN0KM&list=RDeYuUAGXN0KM&start_radio=1&pp=oAcB
+              - generic [ref=e1234]:
+                - generic [ref=e1237]:
+                  - img
+                - generic [ref=e1238]: 3:32
+            - generic [ref=e1240]:
+              - generic [ref=e1241]:
+                - heading "Rick Astley - Take Me to Your Heart (Official Video) (4K Remaster) 3 分 32 秒" [level=3] [ref=e1242]:
+                  - link "Rick Astley - Take Me to Your Heart (Official Video) (4K Remaster) 3 分 32 秒" [ref=e1243]:
+                    - /url: /watch?v=eYuUAGXN0KM&list=RDeYuUAGXN0KM&start_radio=1&pp=oAcB
+                    - text: Rick Astley - Take Me to Your Heart (Official Video) (4K Remaster)
+                - generic [ref=e1245]:
+                  - group [ref=e1246]:
+                    - generic [ref=e1247]:
+                      - text: Rick Astley
+                      - img [ref=e1250]:
+                        - generic [ref=e1252]:
+                          - img
+                  - group [ref=e1253]:
+                    - generic [ref=e1254]: 4720万回視聴
+                    - generic [ref=e1255]: •
+                    - generic [ref=e1256]: 14 年前
+              - button "その他の操作" [ref=e1259]:
+                - generic [ref=e1263]:
+                  - img
+          - generic [ref=e1269]:
+            - generic [ref=e1272]:
+              - generic [ref=e1274]:
+                - link [ref=e1275] [cursor=pointer]:
+                  - /url: /shorts/X4dGtpUD3gA
+                - generic [ref=e1279] [cursor=pointer]:
+                  - 'link "Rick Astley – Never Gonna Give You Up 1987 vs 2022 ✨ 35 Years Later #rickastley #80smusic" [ref=e1280]':
+                    - /url: /shorts/X4dGtpUD3gA
+                  - generic [ref=e1281]: 197万回視聴
+                - button "その他の操作" [ref=e1283] [cursor=pointer]:
+                  - generic [ref=e1287]:
+                    - img
+              - generic [ref=e1292]:
+                - link [ref=e1293] [cursor=pointer]:
+                  - /url: /shorts/Ay8lynMZ4mE
+                - generic [ref=e1297] [cursor=pointer]:
+                  - link "The music video for Never Gonna Give You Up is now available to watch in 4K 🎥" [ref=e1298]:
+                    - /url: /shorts/Ay8lynMZ4mE
+                  - generic [ref=e1299]: 105万回視聴
+                - button "その他の操作" [ref=e1301] [cursor=pointer]:
+                  - generic [ref=e1305]:
+                    - img
+              - generic [ref=e1310]:
+                - link [ref=e1311] [cursor=pointer]:
+                  - /url: /shorts/n5EuaxDzzSg
+                - generic [ref=e1315] [cursor=pointer]:
+                  - link "🔥🔥Looks and Voices are matching Rick Astley🔥🔥#Shorts" [ref=e1316]:
+                    - /url: /shorts/n5EuaxDzzSg
+                  - generic [ref=e1317]: 724万回視聴
+                - button "その他の操作" [ref=e1319] [cursor=pointer]:
+                  - generic [ref=e1323]:
+                    - img
+              - generic [ref=e1328]:
+                - link [ref=e1329] [cursor=pointer]:
+                  - /url: /shorts/kw-UdL5wW4A
+                - generic [ref=e1333] [cursor=pointer]:
+                  - 'link "【17億回再生】世界をダマし続ける男、リック・アストリー #Rickroll #ネットミーム #shorts" [ref=e1334]':
+                    - /url: /shorts/kw-UdL5wW4A
+                  - generic [ref=e1335]: 6.1万回視聴
+                - button "その他の操作" [ref=e1337] [cursor=pointer]:
+                  - generic [ref=e1341]:
+                    - img
+              - generic [ref=e1346]:
+                - link [ref=e1347] [cursor=pointer]:
+                  - /url: /shorts/qswSBJqm_s0
+                - generic [ref=e1351] [cursor=pointer]:
+                  - link "Rick Astley Evolution 🌟 1987 to 2025 | Never Gonna Give You Up to Timeless Icon" [ref=e1352]:
+                    - /url: /shorts/qswSBJqm_s0
+                  - generic [ref=e1353]: 58万回視聴
+                - button "その他の操作" [ref=e1355] [cursor=pointer]:
+                  - generic [ref=e1359]:
+                    - img
+              - generic [ref=e1364]:
+                - link [ref=e1365] [cursor=pointer]:
+                  - /url: /shorts/GagOvevj5JQ
+                - generic [ref=e1369] [cursor=pointer]:
+                  - link "Nonstop 80s Greatest Hits 🎈🎈 Best Oldies Songs Of 1980s 🎈🎈 Greatest 80s Music Hits" [ref=e1370]:
+                    - /url: /shorts/GagOvevj5JQ
+                  - generic [ref=e1371]: 283万回視聴
+                - button "その他の操作" [ref=e1373] [cursor=pointer]:
+                  - generic [ref=e1377]:
+                    - img
+            - button "次へ" [ref=e1383] [cursor=pointer]:
+              - generic [ref=e1387]:
+                - img
+          - generic [ref=e1392] [cursor=pointer]:
+            - link [ref=e1393]:
+              - /url: /watch?v=ignGFY4JDmM&list=RDignGFY4JDmM&start_radio=1&pp=oAcB
+              - generic [ref=e1399]:
+                - generic [ref=e1402]:
+                  - img
+                - generic [ref=e1403]: 2:32:45
+            - generic [ref=e1405]:
+              - generic [ref=e1406]:
+                - heading "🎶 Italian Vibes & Mediterranean Music 🎶 2+ Hours Lake Como & Amalfi Coast Serene Beauty 4K 2 時間 32 分" [level=3] [ref=e1407]:
+                  - link "🎶 Italian Vibes & Mediterranean Music 🎶 2+ Hours Lake Como & Amalfi Coast Serene Beauty 4K 2 時間 32 分" [ref=e1408]:
+                    - /url: /watch?v=ignGFY4JDmM&list=RDignGFY4JDmM&start_radio=1&pp=oAcB
+                    - text: 🎶 Italian Vibes & Mediterranean Music 🎶 2+ Hours Lake Como & Amalfi Coast Serene Beauty 4K
+                - generic [ref=e1410]:
+                  - group [ref=e1411]:
+                    - generic [ref=e1412]: Dolce Mediterraneo
+                  - group [ref=e1413]:
+                    - generic [ref=e1414]: 3436回視聴
+                    - generic [ref=e1415]: •
+                    - generic [ref=e1416]: 17 時間前
+                  - group [ref=e1417]:
+                    - generic [ref=e1421]: 新着
+              - button "その他の操作" [ref=e1424]:
+                - generic [ref=e1428]:
+                  - img

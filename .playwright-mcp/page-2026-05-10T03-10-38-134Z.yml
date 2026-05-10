@@ -1,0 +1,63 @@
+- generic [active] [ref=e1]:
+  - generic "YouTube 動画プレーヤー" [ref=e5]:
+    - generic [ref=e7]:
+      - generic:
+        - generic [ref=e9] [cursor=pointer]:
+          - img [ref=e10]
+          - generic [ref=e12]:
+            - generic "今なら初回200円(税込)！" [ref=e13]
+            - generic "fod.fujitv.co.jp" [ref=e14]
+          - link "詳細を見る This link opens in new tab" [ref=e15]:
+            - generic: 詳細を見る
+        - generic [ref=e16]:
+          - generic "スポンサー" [ref=e18]
+          - button "マイ アド センター" [ref=e20] [cursor=pointer]:
+            - generic [ref=e21]:
+              - img
+          - generic [ref=e22]:
+            - text: •
+            - generic "1/2" [ref=e23]
+          - link "fod.fujitv.co.jp This link opens in new tab" [ref=e24]:
+            - generic [ref=e25] [cursor=pointer]: fod.fujitv.co.jp
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - slider "移動スライダー" [disabled] [ref=e30]
+        - generic:
+          - generic:
+            - generic:
+              - slider "パネルをクリックまたはスクロールすると、再生位置を細かく調整できます。" [disabled]
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - button "一時停止（k）" [ref=e43] [cursor=pointer]:
+            - img
+          - generic [ref=e44]:
+            - button "ミュート解除（m）" [ref=e46] [cursor=pointer]:
+              - img
+            - slider "音量"
+          - button "0 分 0 秒 / 0 分 30 秒" [ref=e50] [cursor=pointer]: 0:00 / 0:30
+        - generic [ref=e51]:
+          - button "設定" [ref=e53] [cursor=pointer]:
+            - img
+          - generic [ref=e54]:
+            - button "シアター モード（t）" [ref=e55] [cursor=pointer]:
+              - img
+            - button "全画面（f）" [ref=e56] [cursor=pointer]:
+              - img
+  - banner [ref=e80]:
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - button "ガイド" [ref=e85] [cursor=pointer]:
+          - generic [ref=e88]:
+            - img
+        - generic [ref=e89]:
+          - link:
+            - /url: /
+            - generic:
+              - generic:
+                - img
+      - search [ref=e91]:
+        - generic [ref=e92]:
+          - combobox [expanded] [ref=e95]
+          - button "Search" [ref=e96] [cursor=pointer]:
+            - generic [ref=e99]:
+              - img

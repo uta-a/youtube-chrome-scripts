@@ -2,6 +2,8 @@
   const ICON_URL = "https://i.imgur.com/smncvp9.png";
   const THEME_STYLE_ID = "youtube-tab-theme-style";
   const CANVAS_SIZE = 48;
+  const CONTENT_METADATA_LEADING_ICON_SELECTOR =
+    ".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon";
   const RED_FILL_VALUES = ["#ff0033", "#ff0000", "#f00", "red"];
   const THEME_VARIABLES = {
     primary: [
@@ -368,6 +370,17 @@
       });
   }
 
+  function removeContentMetadataLeadingIcons(root = document) {
+    if (root instanceof Element && root.matches(CONTENT_METADATA_LEADING_ICON_SELECTOR)) {
+      root.remove();
+      return;
+    }
+
+    root
+      .querySelectorAll(CONTENT_METADATA_LEADING_ICON_SELECTOR)
+      .forEach((element) => element.remove());
+  }
+
   function applyThemeStyles(theme) {
     if (!document.head) {
       return;
@@ -403,6 +416,7 @@
       yt-icon-button #notification-count,
       yt-notification-action-renderer #notification-count,
       yt-notification-action-renderer .notification-count,
+      .ytSpecIconBadgeShapeTypeNotification .ytSpecIconBadgeShapeBadge,
       #notification-count {
         background-color: ${theme.primaryHex} !important;
       }
@@ -436,6 +450,20 @@
         color: ${theme.primaryHex} !important;
       }
 
+      .ytContentMetadataViewModelLeadingIcon,
+      ${CONTENT_METADATA_LEADING_ICON_SELECTOR} {
+        display: none !important;
+      }
+
+      .ytContentMetadataViewModelDelimiter {
+        display: none !important;
+      }
+
+      .ytContentMetadataViewModelDelimiter
+        + .ytContentMetadataViewModelMetadataText::before {
+        content: " ";
+      }
+
       ytd-notification-topbar-button-renderer #notification-count,
       ytd-notification-renderer #notification-count,
       ytd-masthead #notification-count,
@@ -443,6 +471,7 @@
       yt-icon-button #notification-count,
       yt-notification-action-renderer #notification-count,
       yt-notification-action-renderer .notification-count,
+      .ytSpecIconBadgeShapeTypeNotification .ytSpecIconBadgeShapeBadge,
       #notification-count {
         color: #fff !important;
         border-color: #fff !important;
@@ -484,6 +513,7 @@
   }
 
   function applyTheme(theme) {
+    removeContentMetadataLeadingIcons();
     applyThemeVariables(theme);
     applyThemeStyles(theme);
     applyThemedAttributes(theme);
@@ -573,6 +603,7 @@
       changeTabIcon();
     }
 
+    removeContentMetadataLeadingIcons();
     scheduleThemeApply();
   }
 
@@ -585,6 +616,7 @@
     observer = new MutationObserver(handleDocumentMutation);
     observeTarget(document.documentElement);
     changeTabIcon();
+    removeContentMetadataLeadingIcons();
     extractAndApplyTheme();
   }
 

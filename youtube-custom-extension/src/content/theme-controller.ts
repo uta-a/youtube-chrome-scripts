@@ -8,6 +8,8 @@ import {
 import { extractDominantColorFromImage } from "./theme-extractor";
 
 const THEME_STYLE_ID = "youtube-custom-theme-style";
+const CONTENT_METADATA_LEADING_ICON_SELECTOR =
+  ".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon";
 const THEME_VARIABLES = {
   primary: [
     "--yt-spec-static-brand-red",
@@ -85,6 +87,7 @@ export function createThemeController(targetDocument = document) {
 
     applyThemeVariables(palette);
     applyThemeStyles(palette);
+    removeContentMetadataLeadingIcons(targetDocument);
 
     if (fullScan) {
       applyThemedAttributes(palette, [targetDocument.documentElement]);
@@ -104,7 +107,11 @@ export function createThemeController(targetDocument = document) {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {
         if (node instanceof Element) {
-          pendingAttributeRoots.add(node);
+          removeContentMetadataLeadingIcons(node);
+
+          if (node.isConnected) {
+            pendingAttributeRoots.add(node);
+          }
         }
       });
     });
@@ -231,6 +238,7 @@ export function createThemeController(targetDocument = document) {
       yt-icon-button #notification-count,
       yt-notification-action-renderer #notification-count,
       yt-notification-action-renderer .notification-count,
+      .ytSpecIconBadgeShapeTypeNotification .ytSpecIconBadgeShapeBadge,
       #notification-count {
         background-color: ${nextPalette.primaryHex} !important;
       }
@@ -264,6 +272,20 @@ export function createThemeController(targetDocument = document) {
         color: ${nextPalette.primaryHex} !important;
       }
 
+      .ytContentMetadataViewModelLeadingIcon,
+      ${CONTENT_METADATA_LEADING_ICON_SELECTOR} {
+        display: none !important;
+      }
+
+      .ytContentMetadataViewModelDelimiter {
+        display: none !important;
+      }
+
+      .ytContentMetadataViewModelDelimiter
+        + .ytContentMetadataViewModelMetadataText::before {
+        content: " ";
+      }
+
       ytd-notification-topbar-button-renderer #notification-count,
       ytd-notification-renderer #notification-count,
       ytd-masthead #notification-count,
@@ -271,6 +293,7 @@ export function createThemeController(targetDocument = document) {
       yt-icon-button #notification-count,
       yt-notification-action-renderer #notification-count,
       yt-notification-action-renderer .notification-count,
+      .ytSpecIconBadgeShapeTypeNotification .ytSpecIconBadgeShapeBadge,
       #notification-count {
         color: #fff !important;
         border-color: #fff !important;
@@ -309,6 +332,20 @@ export function createThemeController(targetDocument = document) {
     if (style.textContent !== cssText) {
       style.textContent = cssText;
     }
+  }
+
+  function removeContentMetadataLeadingIcons(root: ParentNode): void {
+    if (
+      root instanceof Element &&
+      root.matches(CONTENT_METADATA_LEADING_ICON_SELECTOR)
+    ) {
+      root.remove();
+      return;
+    }
+
+    root
+      .querySelectorAll(CONTENT_METADATA_LEADING_ICON_SELECTOR)
+      .forEach((element) => element.remove());
   }
 
   function applyThemedAttributes(nextPalette: ThemePalette, roots: Element[]): void {
