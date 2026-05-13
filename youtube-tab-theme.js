@@ -1,7 +1,14 @@
 (function () {
+  if (window.__youtubeTabThemeLoaded) {
+    return;
+  }
+
+  window.__youtubeTabThemeLoaded = true;
+
   const ICON_URL = "https://i.imgur.com/smncvp9.png";
   const THEME_STYLE_ID = "youtube-tab-theme-style";
   const CANVAS_SIZE = 48;
+  const FALLBACK_THEME_COLOR = { r: 255, g: 0, b: 51 };
   const CONTENT_METADATA_LEADING_ICON_SELECTOR =
     ".ytIconWrapperHost.ytContentMetadataViewModelLeadingIcon";
   const CONTENT_METADATA_ICON_SELECTOR = ".ytContentMetadataViewModelIcon";
@@ -35,8 +42,10 @@
 
   let extractedTheme = null;
   let isExtractingTheme = false;
-  let observer = null;
-  let observerTarget = null;
+  let themeObserver = null;
+  let themeObserverTarget = null;
+  let headObserver = null;
+  let headReadyObserver = null;
   let isThemeApplyScheduled = false;
   const pendingThemeRoots = new Set();
 
@@ -51,6 +60,7 @@
     link.rel = "icon";
     link.type = "image/png";
     link.href = ICON_URL;
+    link.dataset.youtubeCustomIcon = "true";
 
     return link;
   }
@@ -773,6 +783,8 @@
       );
     } catch (error) {
       console.warn("YouTube custom theme color could not be applied", error);
+      extractedTheme = createTheme(FALLBACK_THEME_COLOR);
+      applyTheme(extractedTheme);
     } finally {
       isExtractingTheme = false;
     }
@@ -780,6 +792,7 @@
 
   function changeTabIcon() {
     if (!document.head) {
+      observeDocumentUntilHeadExists();
       return;
     }
 
@@ -787,13 +800,59 @@
     document.head.appendChild(createTabIconLink());
   }
 
-  function hasCustomTabIcon() {
+  function hasCustomTabIconAtEnd() {
+    const icons = getCurrentTabIcons();
+    const lastIcon = icons[icons.length - 1];
+
+    return Boolean(
+      lastIcon &&
+        lastIcon.dataset.youtubeCustomIcon === "true" &&
+        (lastIcon.getAttribute("href") === ICON_URL || lastIcon.href === ICON_URL)
+    );
+  }
+
+  function getCurrentTabIcons() {
     return Array.from(
       document.querySelectorAll("link[rel='icon'], link[rel='shortcut icon']")
-    ).some(
-      (link) =>
-        link.getAttribute("href") === ICON_URL || link.href === ICON_URL
     );
+  }
+
+  function ensureTabIcon() {
+    if (!hasCustomTabIconAtEnd()) {
+      changeTabIcon();
+    }
+  }
+
+  function ensureHeadObserver() {
+    if (!document.head || headObserver) {
+      return;
+    }
+
+    headObserver = new MutationObserver(ensureTabIcon);
+    headObserver.observe(document.head, {
+      childList: true,
+    });
+  }
+
+  function observeDocumentUntilHeadExists() {
+    if (document.head || headReadyObserver || !document.documentElement) {
+      return;
+    }
+
+    headReadyObserver = new MutationObserver(() => {
+      if (!document.head) {
+        return;
+      }
+
+      headReadyObserver.disconnect();
+      headReadyObserver = null;
+      ensureHeadObserver();
+      changeTabIcon();
+    });
+
+    headReadyObserver.observe(document.documentElement, {
+      childList: true,
+    });
   }
 
   function scheduleThemeApply() {
@@ -824,35 +883,71 @@
       return;
     }
 
+    if (root === document) {
+      pendingThemeRoots.clear();
+      pendingThemeRoots.add(root);
+      scheduleThemeApply();
+      return;
+    }
+
+    if (isCoveredByPendingRoot(root)) {
+      return;
+    }
+
+    removePendingDescendantRoots(root);
     pendingThemeRoots.add(root);
     scheduleThemeApply();
   }
 
+  function isCoveredByPendingRoot(root) {
+    return Array.from(pendingThemeRoots).some((pendingRoot) => {
+      return (
+        pendingRoot === document ||
+        pendingRoot === root ||
+        pendingRoot.contains(root)
+      );
+    });
+  }
+
+  function removePendingDescendantRoots(root) {
+    Array.from(pendingThemeRoots).forEach((pendingRoot) => {
+      if (pendingRoot !== document && root.contains(pendingRoot)) {
+        pendingThemeRoots.delete(pendingRoot);
+      }
+    });
+  }
+
   function observeTarget(target) {
-    if (!target || observerTarget === target) {
+    if (!target || themeObserverTarget === target) {
       return;
     }
 
-    if (observer) {
-      observer.disconnect();
+    if (themeObserver) {
+      themeObserver.disconnect();
     }
 
-    observerTarget = target;
-    observer.observe(target, {
+    themeObserverTarget = target;
+    themeObserver.observe(target, {
       childList: true,
       characterData: true,
+      attributes: true,
+      attributeFilter: ["fill", "stroke", "stop-color"],
       subtree: true,
     });
   }
 
   function handleDocumentMutation(mutations) {
-    if (!hasCustomTabIcon()) {
-      changeTabIcon();
-    }
-
     mutations.forEach((mutation) => {
       if (mutation.type === "characterData" && mutation.target.parentElement) {
         queueThemeRoot(mutation.target.parentElement);
+      }
+
+      if (
+        mutation.type === "attributes" &&
+        mutation.target instanceof Element &&
+        !isAppliedThemeAttributeMutation(mutation)
+      ) {
+        queueThemeRoot(mutation.target);
       }
 
       mutation.addedNodes.forEach((node) => {
@@ -863,15 +958,24 @@
     });
   }
 
+  function isAppliedThemeAttributeMutation(mutation) {
+    if (!extractedTheme || !mutation.attributeName) {
+      return false;
+    }
+
+    return mutation.target.getAttribute(mutation.attributeName) === extractedTheme.primaryHex;
+  }
+
   function start() {
     if (!document.documentElement) {
       window.setTimeout(start, 50);
       return;
     }
 
-    observer = new MutationObserver(handleDocumentMutation);
+    themeObserver = new MutationObserver(handleDocumentMutation);
     observeTarget(document.documentElement);
     changeTabIcon();
+    ensureHeadObserver();
     formatContentMetadata();
     extractAndApplyTheme();
   }
